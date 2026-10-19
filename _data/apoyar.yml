@@ -35,7 +35,7 @@ familias:
   boton: "Quiero orientación"
   imagen: "/assets/img/travesia.webp"
 contacto:
-  antetitulo: "Contacto"
+  antetitulo: "Contáctanos"
   titulo: "Conversemos."
   texto: "Escríbenos para orientación, donaciones, voluntariado o alianzas. Cada mensaje lo lee una persona del equipo A³."
 cierre:

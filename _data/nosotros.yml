@@ -1,0 +1,48 @@
+antetitulo: "Somos A³"
+titulo: "Un punto de encuentro para *conectar* personas, recursos y oportunidades."
+texto: |
+  **A³ Autismo Guatemala** es una entidad formal integrada por guatemaltecas y guatemaltecos comprometidos con las personas autistas y sus familias. Desde la educación, la salud, el derecho y la propia experiencia de vida, cada integrante aporta lo que sabe y lo que tiene para cumplir una misma misión.
+
+  Creemos que cada persona autista posee fortalezas, capacidades y un potencial único que merece ser reconocido y acompañado. Por eso trabajamos para reducir barreras, fortalecer a las familias y promover comunidades más inclusivas.
+foto: "/assets/img/fotos/aula-maestra.webp"
+foto_alt: "Una maestra acompaña a niñas y niños en el comedor de una escuela en Guatemala"
+sello_arriba: "Fundada en"
+sello_centro: "Agosto 2026"
+sello_abajo: "Guatemala"
+cifras:
+  - cifra: "2026"
+    animar: false
+    sufijo: ""
+    texto: "Nace A³ en Guatemala, en agosto"
+  - cifra: "4"
+    animar: true
+    sufijo: ""
+    texto: "Programas que van del diagnóstico a la comunidad"
+  - cifra: "0"
+    animar: true
+    sufijo: ""
+    texto: "Evaluaciones diagnósticas realizadas"
+  - cifra: "8"
+    animar: true
+    sufijo: ""
+    texto: "Fundadores: profesionales, familias y personas autistas"
+  - cifra: "22"
+    animar: true
+    sufijo: ""
+    texto: "Departamentos: nuestro horizonte, sin fronteras"
+distingue:
+  antetitulo: "Lo que nos distingue"
+  titulo: "Cuatro convicciones que guían *cada paso.*"
+  convicciones:
+    - titulo: "Juntos llegamos más lejos"
+      texto: "El impacto real ocurre cuando las personas trabajan juntas por un ideal. Conectamos familias, profesionales, instituciones y comunidades para construir redes que generen oportunidades."
+      color: "purple"
+    - titulo: "Ninguna familia sola"
+      texto: "Ninguna familia debería enfrentar sola los desafíos relacionados con el autismo. Acompañamos con información clara, confiable y basada en evidencia."
+      color: "yellow-ink"
+    - titulo: "Desde la neurodivergencia"
+      texto: "Toda persona autista merece oportunidades para desarrollarse desde su neurodivergencia, participar y ser valorada dentro de su comunidad."
+      color: "green"
+    - titulo: "Un diagnóstico que orienta"
+      texto: "Una evaluación diagnóstica comprensiva debe responder a las necesidades de la persona, identificar sus fortalezas y orientar los apoyos que favorezcan su desarrollo."
+      color: "blue"

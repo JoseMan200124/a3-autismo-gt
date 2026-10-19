@@ -1,0 +1,12 @@
+# Sitio de A³ Autismo Guatemala (GitHub Pages compila con Jekyll).
+# Los textos e imágenes viven en _data/ y se editan desde /admin/.
+title: "A³ Autismo Guatemala"
+url: "https://joseman200124.github.io"
+baseurl: "/a3-autismo-gt"
+lang: es-GT
+markdown: kramdown
+kramdown:
+  smart_quotes: ["apos", "apos", "quot", "quot"]
+exclude:
+  - README.md
+  - EDITAR.md

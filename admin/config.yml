@@ -1,0 +1,742 @@
+# Panel de edición del sitio (Sveltia CMS). Cada guardado es un commit en main y
+# GitHub Pages vuelve a publicar el sitio solo, en uno o dos minutos.
+backend:
+  name: github
+  repo: JoseMan200124/a3-autismo-gt
+  branch: main
+  commit_messages:
+    update: 'Panel: actualiza {{slug}}'
+    uploadMedia: 'Panel: sube {{path}}'
+    deleteMedia: 'Panel: borra {{path}}'
+site_url: https://joseman200124.github.io/a3-autismo-gt/
+display_url: https://joseman200124.github.io/a3-autismo-gt/
+media_folder: assets/img/fotos
+public_folder: /assets/img/fotos
+media_libraries:
+  default:
+    config:
+      max_file_size: 15000000
+      transformations:
+        raster_image:
+          format: webp
+          quality: 82
+          width: 1920
+          height: 1920
+collections:
+- name: sitio
+  label: Sitio web
+  label_singular: Sección
+  description: Textos e imágenes de cada sección de la página principal.
+  editor:
+    preview: false
+  files:
+  - name: general
+    label: General (nombre, correo, pie)
+    file: _data/general.yml
+    fields:
+    - label: Nombre de la asociación
+      name: nombre
+      widget: string
+    - label: Nombre alterno (para buscadores)
+      name: nombre_alterno
+      widget: string
+    - label: Lema
+      name: lema
+      widget: string
+    - label: Correo de contacto
+      name: correo
+      widget: string
+      hint: También es el destino del formulario de contacto.
+    - label: Ubicación
+      name: ubicacion
+      widget: string
+    - label: Título en Google
+      name: seo_titulo
+      widget: string
+    - label: Descripción en Google
+      name: seo_descripcion
+      widget: text
+    - label: Descripción al compartir en redes
+      name: redes_descripcion
+      widget: text
+    - label: Logo (encabezado y pie)
+      name: logo
+      widget: image
+    - label: Logo al compartir en redes (PNG)
+      name: logo_redes
+      widget: image
+    - label: Nombre junto al logo
+      name: encabezado_nombre
+      widget: string
+    - label: Texto pequeño bajo el nombre
+      name: encabezado_sub
+      widget: string
+    - label: Botón «Quiero apoyar»
+      name: boton_apoyar
+      widget: string
+    - label: Botón fijo en celulares
+      name: boton_fijo
+      widget: string
+    - label: Lema en el pie
+      name: pie_lema
+      widget: string
+    - label: Firma en el pie
+      name: pie_firma
+      widget: string
+    - label: Créditos de fotografía
+      name: creditos
+      widget: list
+      hint: Obligatorios mientras se usen fotos de Wikimedia. Si reemplazan una foto por una propia, borren su crédito.
+      summary: '{{fields.texto}}'
+      fields:
+      - label: Foto
+        name: texto
+        widget: string
+      - label: Autor
+        name: autor
+        widget: string
+      - label: Enlace a la foto
+        name: enlace
+        widget: string
+      - label: Licencia
+        name: licencia
+        widget: string
+      - label: Enlace a la licencia
+        name: licencia_enlace
+        widget: string
+        required: false
+    - label: Nota de créditos
+      name: creditos_nota
+      widget: text
+  - name: inicio
+    label: Portada y «Por qué existimos»
+    file: _data/inicio.yml
+    fields:
+    - label: Portada
+      name: portada
+      widget: object
+      fields:
+      - label: Antetítulo
+        name: antetitulo
+        widget: string
+      - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
+        label: Título
+        name: titulo
+        widget: string
+      - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
+        label: Subtítulo
+        name: subtitulo
+        widget: string
+      - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
+        label: Texto
+        name: texto
+        widget: text
+      - label: Botón secundario
+        name: boton_secundario
+        widget: string
+      - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
+        label: Texto junto a las iniciales
+        name: confianza
+        widget: string
+      - label: Imagen principal (arco)
+        name: imagen
+        widget: image
+      - label: Descripción de la imagen principal
+        name: imagen_alt
+        widget: string
+      - label: Foto pequeña (burbuja)
+        name: burbuja
+        widget: image
+      - label: Descripción de la foto pequeña
+        name: burbuja_alt
+        widget: string
+      - label: 'Dato destacado: cifra'
+        name: dato_cifra
+        widget: string
+      - label: 'Dato destacado: texto'
+        name: dato_texto
+        widget: string
+      - label: 'Dato destacado: fuente'
+        name: dato_fuente
+        widget: string
+    - label: Franja en movimiento
+      name: franja
+      widget: list
+      summary: '{{fields.texto}}'
+      fields:
+      - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
+        label: Palabra
+        name: texto
+        widget: string
+    - label: Por qué existimos
+      name: porque
+      widget: object
+      fields:
+      - label: Antetítulo
+        name: antetitulo
+        widget: string
+      - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
+        label: Título
+        name: titulo
+        widget: string
+      - label: Cifra (1 de cada…)
+        name: cifra_a
+        widget: string
+      - label: Cifra (…de cada N)
+        name: cifra_b
+        widget: string
+      - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
+        label: Texto
+        name: texto
+        widget: text
+      - label: Fuente
+        name: fuente
+        widget: string
+      - label: Enlace de la fuente
+        name: fuente_enlace
+        widget: string
+      - label: Problemas que atendemos
+        name: brechas
+        widget: list
+        summary: '{{fields.titulo}}'
+        fields:
+        - label: Título
+          name: titulo
+          widget: string
+        - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
+          label: Texto
+          name: texto
+          widget: text
+        - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
+          label: Respuesta
+          name: respuesta
+          widget: string
+        - label: Abre el programa
+          name: programa
+          widget: select
+          options:
+          - label: Ruta
+            value: ruta
+          - label: Travesía
+            value: travesia
+          - label: Conexiones
+            value: conexiones
+          - label: A³ en movimiento
+            value: movimiento
+        - label: Color
+          name: color
+          widget: select
+          options:
+          - label: Celeste
+            value: sky
+          - label: Morado
+            value: purple
+          - label: Lila
+            value: purple-lt
+          - label: Verde
+            value: green
+          - label: Verde claro
+            value: green-lt
+          - label: Naranja
+            value: orange
+          - label: Amarillo
+            value: yellow
+          - label: Mostaza
+            value: yellow-ink
+          - label: Azul
+            value: blue
+          - label: Azul marino
+            value: navy
+    - label: Frase sobre foto
+      name: manifiesto
+      widget: object
+      fields:
+      - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
+        label: Frase
+        name: frase
+        widget: string
+      - label: Foto de fondo
+        name: imagen
+        widget: image
+  - name: nosotros
+    label: Nosotros y cifras
+    file: _data/nosotros.yml
+    fields:
+    - label: Antetítulo
+      name: antetitulo
+      widget: string
+    - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
+      label: Título
+      name: titulo
+      widget: string
+    - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
+      label: Texto (deja una línea en blanco entre párrafos)
+      name: texto
+      widget: text
+    - label: Foto
+      name: foto
+      widget: image
+    - label: Descripción de la foto
+      name: foto_alt
+      widget: string
+    - label: 'Sello: arriba'
+      name: sello_arriba
+      widget: string
+    - label: 'Sello: centro'
+      name: sello_centro
+      widget: string
+    - label: 'Sello: abajo'
+      name: sello_abajo
+      widget: string
+    - label: Cifras (contadores)
+      name: cifras
+      widget: list
+      hint: Aquí se actualiza, por ejemplo, el número de evaluaciones realizadas.
+      summary: '{{fields.cifra}} · {{fields.texto}}'
+      fields:
+      - label: Cifra
+        name: cifra
+        widget: string
+        hint: Solo el número, sin puntos ni comas (ej. 150).
+      - label: Animar el conteo
+        name: animar
+        widget: boolean
+        default: true
+        hint: Desactívalo para años como 2026.
+      - label: Después del número (opcional)
+        name: sufijo
+        widget: string
+        required: false
+        hint: Por ejemplo «+».
+      - label: Texto
+        name: texto
+        widget: string
+    - label: Lo que nos distingue
+      name: distingue
+      widget: object
+      fields:
+      - label: Antetítulo
+        name: antetitulo
+        widget: string
+      - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
+        label: Título
+        name: titulo
+        widget: string
+      - label: Convicciones
+        name: convicciones
+        widget: list
+        summary: '{{fields.titulo}}'
+        fields:
+        - label: Título
+          name: titulo
+          widget: string
+        - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
+          label: Texto
+          name: texto
+          widget: text
+        - label: Color
+          name: color
+          widget: select
+          options:
+          - label: Celeste
+            value: sky
+          - label: Morado
+            value: purple
+          - label: Lila
+            value: purple-lt
+          - label: Verde
+            value: green
+          - label: Verde claro
+            value: green-lt
+          - label: Naranja
+            value: orange
+          - label: Amarillo
+            value: yellow
+          - label: Mostaza
+            value: yellow-ink
+          - label: Azul
+            value: blue
+          - label: Azul marino
+            value: navy
+  - name: programas
+    label: Programas
+    file: _data/programas.yml
+    fields:
+    - label: Antetítulo
+      name: antetitulo
+      widget: string
+    - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
+      label: Título
+      name: titulo
+      widget: string
+    - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
+      label: Texto
+      name: texto
+      widget: text
+    - label: Programas
+      name: lista
+      widget: list
+      allow_add: false
+      allow_remove: false
+      allow_reorder: false
+      summary: '{{fields.nombre}}'
+      fields:
+      - label: Clave interna (no cambiar)
+        name: clave
+        widget: string
+        readonly: true
+      - label: Nombre
+        name: nombre
+        widget: string
+      - label: Frase bajo el ícono
+        name: paso
+        widget: string
+      - label: Color
+        name: color
+        widget: select
+        options:
+        - label: Celeste
+          value: sky
+        - label: Morado
+          value: purple
+        - label: Lila
+          value: purple-lt
+        - label: Verde
+          value: green
+        - label: Verde claro
+          value: green-lt
+        - label: Naranja
+          value: orange
+        - label: Amarillo
+          value: yellow
+        - label: Mostaza
+          value: yellow-ink
+        - label: Azul
+          value: blue
+        - label: Azul marino
+          value: navy
+      - label: Ícono (infinito del programa)
+        name: icono
+        widget: image
+      - label: Foto
+        name: foto
+        widget: image
+      - label: Descripción de la foto
+        name: foto_alt
+        widget: string
+      - label: Antetítulo
+        name: antetitulo
+        widget: string
+      - label: Título
+        name: titulo
+        widget: string
+      - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
+        label: Texto
+        name: texto
+        widget: text
+      - label: Objetivos
+        name: objetivos
+        widget: list
+        summary: '{{fields.texto}}'
+        fields:
+        - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
+          label: Objetivo
+          name: texto
+          widget: string
+      - label: Frase final
+        name: frase
+        widget: string
+  - name: esencia
+    label: Misión, visión y valores
+    file: _data/esencia.yml
+    fields:
+    - label: Antetítulo
+      name: antetitulo
+      widget: string
+    - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
+      label: Título
+      name: titulo
+      widget: string
+    - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
+      label: Misión
+      name: mision
+      widget: text
+    - label: Ilustración de la misión
+      name: mision_imagen
+      widget: image
+    - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
+      label: Visión
+      name: vision
+      widget: text
+    - label: Ilustración de la visión
+      name: vision_imagen
+      widget: image
+    - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
+      label: Aspiración (frase sobre foto)
+      name: aspiracion
+      widget: text
+    - label: Foto de fondo de la aspiración
+      name: aspiracion_imagen
+      widget: image
+    - label: 'Valores: antetítulo'
+      name: valores_antetitulo
+      widget: string
+    - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
+      label: 'Valores: título'
+      name: valores_titulo
+      widget: string
+    - label: Valores
+      name: valores
+      widget: list
+      summary: '{{fields.nombre}}'
+      fields:
+      - label: Nombre
+        name: nombre
+        widget: string
+      - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
+        label: Texto
+        name: texto
+        widget: text
+      - label: Ícono
+        name: icono
+        widget: image
+      - label: Color
+        name: color
+        widget: select
+        options:
+        - label: Celeste
+          value: sky
+        - label: Morado
+          value: purple
+        - label: Lila
+          value: purple-lt
+        - label: Verde
+          value: green
+        - label: Verde claro
+          value: green-lt
+        - label: Naranja
+          value: orange
+        - label: Amarillo
+          value: yellow
+        - label: Mostaza
+          value: yellow-ink
+        - label: Azul
+          value: blue
+        - label: Azul marino
+          value: navy
+  - name: fundadores
+    label: Fundadores
+    file: _data/fundadores.yml
+    fields:
+    - label: Antetítulo
+      name: antetitulo
+      widget: string
+    - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
+      label: Título
+      name: titulo
+      widget: string
+    - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
+      label: Texto
+      name: texto
+      widget: text
+    - label: Personas
+      name: personas
+      widget: list
+      summary: '{{fields.nombre}}'
+      fields:
+      - label: Nombre
+        name: nombre
+        widget: string
+      - label: Iniciales
+        name: iniciales
+        widget: string
+        hint: Se muestran si no hay foto.
+      - label: Foto (opcional)
+        name: foto
+        widget: image
+        required: false
+      - label: Rol
+        name: rol
+        widget: string
+      - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
+        label: Texto
+        name: texto
+        widget: text
+      - label: Color
+        name: color
+        widget: select
+        options:
+        - label: Celeste
+          value: sky
+        - label: Morado
+          value: purple
+        - label: Lila
+          value: purple-lt
+        - label: Verde
+          value: green
+        - label: Verde claro
+          value: green-lt
+        - label: Naranja
+          value: orange
+        - label: Amarillo
+          value: yellow
+        - label: Mostaza
+          value: yellow-ink
+        - label: Azul
+          value: blue
+        - label: Azul marino
+          value: navy
+  - name: apoyar
+    label: Apoyar, familias, contacto y cierre
+    file: _data/apoyar.yml
+    fields:
+    - label: Antetítulo
+      name: antetitulo
+      widget: string
+    - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
+      label: Título
+      name: titulo
+      widget: string
+    - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
+      label: Texto
+      name: texto
+      widget: text
+    - label: Título de impacto
+      name: impacto_titulo
+      widget: string
+    - label: Tarjetas de impacto
+      name: impacto
+      widget: list
+      summary: '{{fields.etiqueta}}'
+      fields:
+      - label: Etiqueta
+        name: etiqueta
+        widget: string
+      - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
+        label: Texto
+        name: texto
+        widget: text
+      - label: Foto
+        name: imagen
+        widget: image
+      - label: Color
+        name: color
+        widget: select
+        options:
+        - label: Celeste
+          value: sky
+        - label: Morado
+          value: purple
+        - label: Lila
+          value: purple-lt
+        - label: Verde
+          value: green
+        - label: Verde claro
+          value: green-lt
+        - label: Naranja
+          value: orange
+        - label: Amarillo
+          value: yellow
+        - label: Mostaza
+          value: yellow-ink
+        - label: Azul
+          value: blue
+        - label: Azul marino
+          value: navy
+    - label: Formas de apoyar
+      name: formas
+      widget: object
+      fields:
+      - label: 'Donar: título'
+        name: donar_titulo
+        widget: string
+      - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
+        label: 'Donar: texto'
+        name: donar_texto
+        widget: text
+      - label: 'Donar: botón'
+        name: donar_boton
+        widget: string
+      - label: 'Voluntariado: título'
+        name: voluntario_titulo
+        widget: string
+      - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
+        label: 'Voluntariado: texto'
+        name: voluntario_texto
+        widget: text
+      - label: 'Voluntariado: botón'
+        name: voluntario_boton
+        widget: string
+      - label: 'Alianzas: título'
+        name: alianza_titulo
+        widget: string
+      - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
+        label: 'Alianzas: texto'
+        name: alianza_texto
+        widget: text
+      - label: 'Alianzas: botón'
+        name: alianza_boton
+        widget: string
+      - label: 'Profesionales: título'
+        name: profesional_titulo
+        widget: string
+      - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
+        label: 'Profesionales: texto'
+        name: profesional_texto
+        widget: text
+      - label: 'Profesionales: botón'
+        name: profesional_boton
+        widget: string
+    - label: Para familias
+      name: familias
+      widget: object
+      fields:
+      - label: Antetítulo
+        name: antetitulo
+        widget: string
+      - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
+        label: Título
+        name: titulo
+        widget: string
+      - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
+        label: Texto
+        name: texto
+        widget: text
+      - label: Botón
+        name: boton
+        widget: string
+      - label: Ilustración
+        name: imagen
+        widget: image
+    - label: Contacto
+      name: contacto
+      widget: object
+      fields:
+      - label: Antetítulo
+        name: antetitulo
+        widget: string
+      - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
+        label: Título
+        name: titulo
+        widget: string
+      - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
+        label: Texto
+        name: texto
+        widget: text
+    - label: Cierre
+      name: cierre
+      widget: object
+      fields:
+      - label: Texto
+        name: texto
+        widget: string
+      - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
+        label: Título
+        name: titulo
+        widget: string
+      - label: Botón
+        name: boton
+        widget: string
+      - label: Imagen
+        name: imagen
+        widget: image

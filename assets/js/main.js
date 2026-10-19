@@ -75,8 +75,8 @@
   );
 
   /* Formulario: arma el correo para la bandeja de A³ */
-  const EMAIL = "infoautismoenacciongt@gmail.com";
   const form = document.getElementById("contactForm");
+  const EMAIL = form.dataset.correo;
   const status = document.getElementById("formStatus");
   form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -165,13 +165,15 @@
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
         co.unobserve(entry.target);
-        const el = entry.target, end = Number(el.dataset.count), t0 = performance.now(), dur = 1400;
+        const el = entry.target, end = Number(el.dataset.count.replace(/\D/g, "")), t0 = performance.now(), dur = 1400;
+        const suffix = el.dataset.suffix || "";
+        if (!end) return;
         const step = (now) => {
           const k = Math.min(1, (now - t0) / dur);
-          el.textContent = Math.round(end * (1 - Math.pow(1 - k, 3)));
+          el.textContent = Math.round(end * (1 - Math.pow(1 - k, 3))).toLocaleString("es-GT") + suffix;
           if (k < 1) requestAnimationFrame(step);
         };
-        el.textContent = "0";
+        el.textContent = "0" + suffix;
         requestAnimationFrame(step);
       });
     }, { threshold: 0.6 });

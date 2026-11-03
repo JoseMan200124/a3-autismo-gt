@@ -1,6 +1,6 @@
 # Cómo editar el sitio de A³ Autismo Guatemala
 
-El sitio tiene un panel de edición en **https://joseman200124.github.io/a3-autismo-gt/admin/**.
+El sitio tiene un panel de edición en **https://autismogt.org/admin/**.
 Desde ahí se cambian todos los textos, las cifras (por ejemplo, las evaluaciones realizadas) y las fotos.
 
 ## Primera vez (una sola vez por persona)

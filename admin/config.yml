@@ -1,5 +1,5 @@
 # Panel de edición del sitio (Sveltia CMS). Cada guardado es un commit en main y
-# GitHub Pages vuelve a publicar el sitio solo, en uno o dos minutos.
+# Vercel vuelve a publicar el sitio solo, en uno o dos minutos.
 backend:
   name: github
   repo: JoseMan200124/a3-autismo-gt
@@ -8,8 +8,8 @@ backend:
     update: 'Panel: actualiza {{slug}}'
     uploadMedia: 'Panel: sube {{path}}'
     deleteMedia: 'Panel: borra {{path}}'
-site_url: https://joseman200124.github.io/a3-autismo-gt/
-display_url: https://joseman200124.github.io/a3-autismo-gt/
+site_url: https://autismogt.org/
+display_url: https://autismogt.org/
 media_folder: assets/img/fotos
 public_folder: /assets/img/fotos
 media_libraries:

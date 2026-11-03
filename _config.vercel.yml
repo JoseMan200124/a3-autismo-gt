@@ -1,0 +1,3 @@
+# Se suma a _config.yml al compilar en Vercel, donde el sitio vive en la raíz del dominio.
+url: "https://autismogt.org"
+baseurl: ""

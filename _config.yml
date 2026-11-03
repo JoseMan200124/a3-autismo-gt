@@ -10,3 +10,8 @@ kramdown:
 exclude:
   - README.md
   - EDITAR.md
+  - Gemfile
+  - Gemfile.lock
+  - vercel.json
+  - _config.vercel.yml
+  - vendor

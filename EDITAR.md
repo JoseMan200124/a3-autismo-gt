@@ -20,6 +20,9 @@ No hace falta cuenta de GitHub. Cada persona tiene su propio usuario: no compart
   convierte a un formato liviano automáticamente.
 - En los textos, `*así*` se ve en cursiva y `**así**` en negrita.
 - El contador de evaluaciones está en **Nosotros y cifras → Cifras**.
+- A la derecha está la **vista previa**: es la página real armada con lo que van escribiendo, y se
+  actualiza mientras escriben. Arriba pueden cambiar entre **Computadora** y **Celular**. Lo que se ve
+  ahí todavía no está publicado: se publica al tocar **Guardar**.
 - Después de guardar, el sitio se actualiza solo en uno o dos minutos.
 
 Si reemplazan una foto de Wikimedia por una propia, borren su crédito en **General → Créditos de fotografía**.

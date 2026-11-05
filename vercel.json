@@ -1,7 +1,7 @@
 {
   "framework": "jekyll",
   "installCommand": "bundle install",
-  "buildCommand": "bundle exec jekyll build --config _config.yml,_config.vercel.yml",
+  "buildCommand": "bundle exec jekyll build --config _config.yml,_config.vercel.yml && node herramientas/vista-previa-build.js",
   "outputDirectory": "_site",
   "rewrites": [
     {

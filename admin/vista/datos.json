@@ -1,0 +1,6 @@
+---
+# Datos publicados del sitio para la vista previa del panel (herramientas/vista-previa-build.js
+# los junta con la plantilla en admin/vista/paquete.json al compilar en Vercel).
+layout: null
+---
+{{ site.data | jsonify }}

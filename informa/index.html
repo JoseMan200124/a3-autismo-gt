@@ -1,0 +1,27 @@
+---
+layout: pagina
+title: "A3 Informa"
+description: "Noticias, guías e historias de A³ Autismo Guatemala para entender el autismo, acompañar a las familias y construir una Guatemala más inclusiva."
+---
+{%- assign inf = site.data.informa -%}
+<section class="section">
+  <div class="wrap">
+    <header class="section__head">
+      {%- if inf.icono and inf.icono != "" %}
+      <img class="section__icon" src="{{ inf.icono | relative_url }}" alt="" width="480" height="272">
+      {%- endif %}
+      <p class="eyebrow">{{ inf.antetitulo }}</p>
+      <h1 class="h2">{% include md.html t=inf.titulo %}</h1>
+      <p class="section__sub">{% include md.html t=inf.texto %}</p>
+    </header>
+    {%- if site.posts.size > 0 %}
+    <div class="posts">
+      {%- for e in site.posts %}
+      {% include tarjeta-entrada.html e=e %}
+      {%- endfor %}
+    </div>
+    {%- else %}
+    <p class="posts__empty">{{ inf.vacio }}</p>
+    {%- endif %}
+  </div>
+</section>

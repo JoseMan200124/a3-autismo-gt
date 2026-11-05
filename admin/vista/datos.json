@@ -1,6 +1,6 @@
 ---
 # Datos publicados del sitio para la vista previa del panel (herramientas/vista-previa-build.js
-# los junta con la plantilla en admin/vista/paquete.json al compilar en Vercel).
+# los junta con las plantillas en admin/vista/paquete.json al compilar en Vercel).
 layout: null
 ---
-{{ site.data | jsonify }}
+{"data": {{ site.data | jsonify }}, "posts": [{% for e in site.posts %}{"title": {{ e.title | jsonify }}, "url": {{ e.url | jsonify }}, "date": {{ e.date | date_to_xmlschema | jsonify }}, "resumen": {{ e.resumen | jsonify }}, "categoria": {{ e.categoria | jsonify }}, "imagen": {{ e.imagen | jsonify }}, "imagen_alt": {{ e.imagen_alt | jsonify }}}{% unless forloop.last %}, {% endunless %}{% endfor %}]}

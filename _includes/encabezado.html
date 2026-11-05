@@ -1,0 +1,25 @@
+{%- comment -%} Encabezado del sitio. En la portada raiz = "", en otras páginas raiz = "/". {%- endcomment -%}
+  <!-- ============ HEADER ============ -->
+  <header class="nav" id="nav">
+    <div class="wrap nav__inner">
+      <a href="{{ raiz }}#inicio" class="nav__brand" aria-label="{{ g.nombre | escape }}, ir al inicio">
+        <img src="{{ g.logo | relative_url }}" alt="" width="64" height="41">
+        <span class="nav__name">{{ g.encabezado_nombre }}<small>{{ g.encabezado_sub }}</small></span>
+      </a>
+      <nav class="nav__links" id="menu" aria-label="Principal">
+        <a href="{{ raiz }}#nosotros">Nosotros</a>
+        <a href="{{ raiz }}#programas">Programas</a>
+        <a href="{{ raiz }}#valores">Valores</a>
+        <a href="{{ raiz }}#fundadores">Fundadores</a>
+        <a href="{{ raiz }}#impulsadores">Impulsadores</a>
+        <a href="{{ raiz }}#informa">A3 Informa</a>
+        <a href="{{ raiz }}#apoyar">Súmate</a>
+        <a href="{{ raiz }}#contacto">Contáctanos</a>
+        <a href="{{ raiz }}#apoyar" class="btn btn--primary btn--sm nav__cta">{{ g.boton_apoyar }}</a>
+      </nav>
+      <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">
+        <span></span><span></span>
+      </button>
+    </div>
+    <div class="spectrum" aria-hidden="true"></div>
+  </header>

@@ -1,0 +1,25 @@
+---
+layout: pagina
+# Una entrada de A3 Informa (se escriben desde el panel: «A3 Informa · entradas»).
+---
+<article class="section article">
+  <div class="wrap article__wrap">
+    <p class="article__back"><a class="link link--claro" href="{{ '/informa/' | relative_url }}">← {{ site.data.informa.antetitulo }}</a></p>
+    <header class="article__head">
+      <p class="eyebrow">{% if page.categoria and page.categoria != "" %}{{ page.categoria }} · {% endif %}<time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%d/%m/%Y' }}</time></p>
+      <h1 class="h2">{{ page.title }}</h1>
+      {%- if page.resumen and page.resumen != "" %}<p class="article__lead">{{ page.resumen }}</p>{% endif %}
+      {%- if page.autor and page.autor != "" %}<p class="article__author">Por {{ page.autor }}</p>{% endif %}
+    </header>
+    {%- if page.imagen and page.imagen != "" %}
+    <figure class="article__img"><img src="{{ page.imagen | relative_url }}" alt="{{ page.imagen_alt | default: '' | escape }}" width="1200" height="675"></figure>
+    {%- endif %}
+    <div class="article__body">
+{{ content }}
+    </div>
+    <aside class="article__cta">
+      <p>¿Te quedó alguna duda o quieres sumarte a A³?</p>
+      <a class="btn btn--primary" href="{{ '/#contacto' | relative_url }}">Escríbenos</a>
+    </aside>
+  </div>
+</article>

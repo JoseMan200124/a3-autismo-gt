@@ -8,6 +8,9 @@
 {%- assign esen = site.data.esencia -%}
 {%- assign fun = site.data.fundadores -%}
 {%- assign apo = site.data.apoyar -%}
+{%- assign imp = site.data.impulsadores -%}
+{%- assign inf = site.data.informa -%}
+{%- assign raiz = '' -%}
 <!doctype html>
 <html lang="es-GT">
 <head>
@@ -99,27 +102,7 @@
 <body>
   <a class="skip" href="#contenido">Saltar al contenido</a>
 
-  <!-- ============ HEADER ============ -->
-  <header class="nav" id="nav">
-    <div class="wrap nav__inner">
-      <a href="#inicio" class="nav__brand" aria-label="{{ g.nombre | escape }}, ir al inicio">
-        <img src="{{ g.logo | relative_url }}" alt="" width="64" height="56">
-        <span class="nav__name">{{ g.encabezado_nombre }}<small>{{ g.encabezado_sub }}</small></span>
-      </a>
-      <nav class="nav__links" id="menu" aria-label="Principal">
-        <a href="#nosotros">Nosotros</a>
-        <a href="#programas">Programas</a>
-        <a href="#valores">Valores</a>
-        <a href="#fundadores">Fundadores</a>
-        <a href="#contacto">Contáctanos</a>
-        <a href="#apoyar" class="btn btn--primary btn--sm nav__cta">{{ g.boton_apoyar }}</a>
-      </nav>
-      <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">
-        <span></span><span></span>
-      </button>
-    </div>
-    <div class="spectrum" aria-hidden="true"></div>
-  </header>
+  {% include encabezado.html %}
 
   <main id="contenido">
 
@@ -387,11 +370,66 @@
       </div>
     </section>
 
+    <!-- ============ IMPULSADORES DE CAMBIO ============ -->
+    <section class="section section--tint" id="impulsadores">
+      <div class="wrap">
+        <header class="section__head">
+          {%- if imp.icono and imp.icono != "" %}
+          <img class="section__icon reveal" src="{{ imp.icono | relative_url }}" alt="" width="480" height="248" loading="lazy">
+          {%- endif %}
+          <p class="eyebrow reveal">{{ imp.antetitulo }}</p>
+          <h2 class="h2 reveal">{% include md.html t=imp.titulo %}</h2>
+          <p class="section__sub reveal">{% include md.html t=imp.texto %}</p>
+        </header>
+        <ul class="partners" role="list">
+          {%- for e in imp.empresas %}
+          <li class="partner reveal">
+            {%- if e.enlace and e.enlace != "" %}
+            <a href="{{ e.enlace }}" target="_blank" rel="noopener" title="{{ e.nombre | escape }}"><img src="{{ e.logo | relative_url }}" alt="{{ e.nombre | escape }}" loading="lazy"></a>
+            {%- else %}
+            <img src="{{ e.logo | relative_url }}" alt="{{ e.nombre | escape }}" loading="lazy">
+            {%- endif %}
+          </li>
+          {%- endfor %}
+        </ul>
+        <p class="partners__cta reveal">{{ imp.invitacion }} <a class="link link--claro" href="#contacto" data-interes="Alianza institucional">{{ imp.boton }}</a></p>
+      </div>
+    </section>
+
+    <!-- ============ A3 INFORMA ============ -->
+    <section class="section" id="informa">
+      <div class="wrap">
+        <header class="section__head">
+          {%- if inf.icono and inf.icono != "" %}
+          <img class="section__icon reveal" src="{{ inf.icono | relative_url }}" alt="" width="480" height="272" loading="lazy">
+          {%- endif %}
+          <p class="eyebrow reveal">{{ inf.antetitulo }}</p>
+          <h2 class="h2 reveal">{% include md.html t=inf.titulo %}</h2>
+          <p class="section__sub reveal">{% include md.html t=inf.texto %}</p>
+        </header>
+        {%- if site.posts.size > 0 %}
+        <div class="posts">
+          {%- for e in site.posts limit: 3 %}
+          {% include tarjeta-entrada.html e=e %}
+          {%- endfor %}
+        </div>
+        {%- if site.posts.size > 3 %}
+        <p class="posts__more reveal"><a class="btn btn--ghost" href="{{ '/informa/' | relative_url }}">{{ inf.boton_todas }}</a></p>
+        {%- endif %}
+        {%- else %}
+        <p class="posts__empty reveal">{{ inf.vacio }}</p>
+        {%- endif %}
+      </div>
+    </section>
+
     <!-- ============ APOYAR ============ -->
     {%- assign w = apo.formas %}
     <section class="section support" id="apoyar">
       <div class="wrap">
         <header class="section__head section__head--light">
+          {%- if apo.icono and apo.icono != "" %}
+          <img class="section__icon section__icon--card reveal" src="{{ apo.icono | relative_url }}" alt="" width="480" height="349" loading="lazy">
+          {%- endif %}
           <p class="eyebrow reveal">{{ apo.antetitulo }}</p>
           <h2 class="h2 reveal">{% include md.html t=apo.titulo %}</h2>
           <p class="section__sub reveal">{% include md.html t=apo.texto %}</p>
@@ -464,6 +502,12 @@
             <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
             {{ g.correo }}
           </a>
+          {%- if g.whatsapp and g.whatsapp != "" %}
+          <a class="contact__mail reveal" href="https://wa.me/502{{ g.whatsapp | remove: '-' | remove: ' ' }}?text={{ g.whatsapp_mensaje | url_encode }}" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/><path d="M9 9.5c.4 2 2 3.8 4 4.5l1.2-1.2 2 .9-.5 1.6c-3.3.2-7.6-3.6-7.6-7.1l1.6-.5.9 2z"/></svg>
+            WhatsApp {{ g.whatsapp }}
+          </a>
+          {%- endif %}
           <p class="contact__place reveal">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg>
             {{ g.ubicacion }}
@@ -509,60 +553,6 @@
     </section>
   </main>
 
-  <!-- ============ FOOTER ============ -->
-  <footer class="footer">
-    <div class="spectrum" aria-hidden="true"></div>
-    <div class="wrap footer__grid">
-      <div class="footer__brand">
-        <img src="{{ g.logo | relative_url }}" alt="{{ g.nombre | escape }}" width="140" height="122" loading="lazy">
-        <p>{{ g.pie_lema }}</p>
-      </div>
-      <nav aria-label="Programas">
-        <h4>Programas</h4>
-        {%- for pr in prog.lista %}
-        <a href="#programas" data-tab="t-{{ pr.clave }}">{{ pr.nombre }}</a>
-        {%- endfor %}
-      </nav>
-      <nav aria-label="Institución">
-        <h4>A³</h4>
-        <a href="#nosotros">Quiénes somos</a>
-        <a href="#esencia">Misión y visión</a>
-        <a href="#valores">Valores</a>
-        <a href="#fundadores">Fundadores</a>
-      </nav>
-      <div>
-        <h4>Contáctanos</h4>
-        <a href="mailto:{{ g.correo }}">{{ g.correo }}</a>
-        <a href="#apoyar">Cómo apoyar</a>
-      </div>
-    </div>
-    {%- if g.creditos.size > 0 %}
-    <div class="wrap">
-      <details class="credits">
-        <summary>Créditos de fotografía</summary>
-        <ul>
-          {%- for c in g.creditos %}
-          <li>{{ c.texto }} — <a href="{{ c.enlace }}" rel="noopener" target="_blank">{{ c.autor }}</a>, {% if c.licencia_enlace and c.licencia_enlace != "" %}<a href="{{ c.licencia_enlace }}" rel="noopener" target="_blank">{{ c.licencia }}</a>{% else %}{{ c.licencia }}{% endif %}</li>
-          {%- endfor %}
-        </ul>
-        <p>{{ g.creditos_nota }}</p>
-      </details>
-    </div>
-    {%- endif %}
-    <div class="wrap footer__legal">
-      <p>© <span id="year">2026</span> {{ g.nombre }}. Todos los derechos reservados.</p>
-      <p>{{ g.pie_firma }}</p>
-    </div>
-    <div class="wrap footer__haricode">
-      <p>Diseño y desarrollo web por <a href="https://www.haricode.tech/?utm_source=autismogt.org&amp;utm_medium=referral&amp;utm_campaign=creditos_pie" target="_blank" rel="noopener" title="Haricode: desarrollo de software, apps y páginas web en Guatemala">Haricode</a> · Desarrollo de software y páginas web en Guatemala</p>
-    </div>
-  </footer>
-
-  <a href="#apoyar" class="sticky-cta" id="stickyCta" aria-hidden="true" tabindex="-1">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z"/></svg>
-    {{ g.boton_fijo }}
-  </a>
-
-  <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
+  {% include pie.html %}
 </body>
 </html>

@@ -4,6 +4,7 @@ title: "A³ Autismo Guatemala"
 url: "https://joseman200124.github.io"
 baseurl: "/a3-autismo-gt"
 lang: es-GT
+timezone: America/Guatemala
 markdown: kramdown
 kramdown:
   smart_quotes: ["apos", "apos", "quot", "quot"]
@@ -18,3 +19,11 @@ exclude:
   - api
   - herramientas
   - package.json
+# A3 Informa: las entradas viven en _posts/ y se publican en /informa/<titulo>/
+permalink: /informa/:title/
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: entrada

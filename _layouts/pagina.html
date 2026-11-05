@@ -1,0 +1,72 @@
+---
+# Plantilla de las páginas internas (A3 Informa y sus entradas): mismo encabezado y pie que la portada.
+---
+{%- assign g = site.data.general -%}
+{%- assign prog = site.data.programas -%}
+{%- assign inf = site.data.informa -%}
+{%- assign raiz = '/' -%}
+{%- capture titulo_pagina %}{% if page.title %}{{ page.title }} | {{ g.nombre }}{% else %}{{ g.seo_titulo }}{% endif %}{% endcapture -%}
+{%- assign descripcion = page.resumen | default: page.description | default: g.seo_descripcion -%}
+{%- assign imagen = page.imagen | default: g.logo_redes -%}
+<!doctype html>
+<html lang="es-GT">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ titulo_pagina | strip | escape }}</title>
+  <meta name="description" content="{{ descripcion | strip_html | strip | escape }}">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <meta name="author" content="{{ page.autor | default: g.nombre | escape }}">
+  <meta name="theme-color" content="#062a63">
+  <link rel="icon" type="image/png" href="{{ '/assets/img/favicon.png' | relative_url }}">
+  <link rel="apple-touch-icon" href="{{ '/assets/img/apple-touch-icon.png' | relative_url }}">
+  <link rel="alternate" type="application/atom+xml" title="A3 Informa" href="{{ '/informa/feed.xml' | absolute_url }}">
+
+  <meta property="og:type" content="{% if page.layout == 'entrada' %}article{% else %}website{% endif %}">
+  <meta property="og:locale" content="es_GT">
+  <meta property="og:site_name" content="{{ g.nombre | escape }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:title" content="{{ page.title | default: g.seo_titulo | escape }}">
+  <meta property="og:description" content="{{ descripcion | strip_html | strip | escape }}">
+  <meta property="og:image" content="{{ imagen | absolute_url }}">
+  <meta name="twitter:card" content="{% if page.imagen and page.imagen != "" %}summary_large_image{% else %}summary{% endif %}">
+  {%- if page.layout == 'entrada' %}
+  <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+  {%- endif %}
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
+  <script>document.documentElement.classList.add("js")</script>
+  {%- if page.layout == 'entrada' %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": {{ page.title | jsonify }},
+    "description": {{ descripcion | strip_html | strip | jsonify }},
+    "image": {{ imagen | absolute_url | jsonify }},
+    "datePublished": "{{ page.date | date_to_xmlschema }}",
+    "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+    "inLanguage": "es-GT",
+    "mainEntityOfPage": {{ page.url | absolute_url | jsonify }},
+    "author": {% if page.autor and page.autor != "" %}{ "@type": "Person", "name": {{ page.autor | jsonify }} }{% else %}{ "@id": "https://autismogt.org/#organizacion" }{% endif %},
+    "publisher": { "@type": "NGO", "@id": "https://autismogt.org/#organizacion", "name": {{ g.nombre | jsonify }}, "logo": { "@type": "ImageObject", "url": {{ g.logo_redes | absolute_url | jsonify }} } },
+    "isPartOf": { "@type": "Blog", "name": "A3 Informa", "url": {{ '/informa/' | absolute_url | jsonify }} }
+  }
+  </script>
+  {%- endif %}
+</head>
+<body class="interior">
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+  {% include encabezado.html %}
+
+  <main id="contenido">
+{{ content }}
+  </main>
+
+  {% include pie.html %}
+</body>
+</html>

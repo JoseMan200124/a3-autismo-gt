@@ -96,6 +96,7 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spa
 }
 .link::after { content: "→"; }
 .link:hover { gap: 12px; }
+.link--claro { color: var(--blue); --c: var(--sky); }
 
 /* ---------- Encabezado ---------- */
 .nav {
@@ -108,11 +109,11 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spa
 .nav__inner { display: flex; align-items: center; justify-content: space-between; height: 78px; gap: 24px; }
 .nav__brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
 .nav__brand img { width: 56px; height: auto; }
-.nav__name { font-weight: 800; color: var(--navy); font-size: 15.5px; line-height: 1.1; letter-spacing: -.01em; display: flex; flex-direction: column; }
+.nav__name { white-space: nowrap; font-weight: 800; color: var(--navy); font-size: 15.5px; line-height: 1.1; letter-spacing: -.01em; display: flex; flex-direction: column; }
 .nav__name small { font-weight: 600; color: var(--sky); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; margin-top: 3px; }
 .nav__links { display: flex; align-items: center; gap: 6px; }
 .nav__links a:not(.btn) {
-  text-decoration: none; font-weight: 600; font-size: 15px; color: var(--ink);
+  text-decoration: none; font-weight: 600; font-size: 15px; color: var(--ink); white-space: nowrap;
   padding: 8px 14px; border-radius: 999px; transition: background .2s, color .2s;
 }
 .nav__links a:not(.btn):hover { background: var(--sky-wash); color: var(--blue); }
@@ -540,16 +541,20 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spa
   .footer__grid { grid-template-columns: 1fr 1fr; }
 }
 
-@media (max-width: 920px) {
+@media (max-width: 1320px) {
   .nav__toggle { display: block; }
   .nav__links {
     position: fixed; inset: 82px 0 auto; flex-direction: column; align-items: stretch; gap: 4px;
     padding: 16px var(--gutter) 24px; background: #fff; box-shadow: 0 30px 40px -20px rgba(13, 33, 71, .3);
     transform: translateY(-12px); opacity: 0; visibility: hidden; transition: all .3s var(--ease);
+    max-height: calc(100vh - 90px); overflow-y: auto;
   }
   .nav__links.is-open { transform: none; opacity: 1; visibility: visible; }
   .nav__links a:not(.btn) { padding: 14px 12px; font-size: 17px; border-bottom: 1px solid var(--line); border-radius: 0; }
   .nav__cta { margin: 14px 0 0; padding: 15px; font-size: 16px; }
+}
+
+@media (max-width: 920px) {
 
   .hero__grid, .about, .panel, .mv, .contact, .family__inner, .section__head--split { grid-template-columns: 1fr; }
   .hero__visual { max-width: 520px; margin: 8px auto 0; }
@@ -622,3 +627,70 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spa
 .footer__haricode p { margin: 0; }
 .footer__haricode a { color: #c9d8ee; font-weight: 700; text-decoration: none; border-bottom: 1px solid rgba(201, 216, 238, .35); transition: color .2s, border-color .2s; }
 .footer__haricode a:hover { color: #fff; border-color: #fff; }
+
+/* ============ Íconos de sección (Impulsadores, A3 Informa, Súmate) ============ */
+.section__icon { display: block; width: 132px; height: auto; margin-bottom: 18px; }
+.section__icon--card { background: #fff; border-radius: 22px; padding: 12px 16px; width: 150px; box-shadow: 0 14px 30px -14px rgba(0, 0, 0, .5); }
+
+/* ============ Impulsadores de cambio ============ */
+.partners { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
+.partner { background: #fff; border-radius: 20px; box-shadow: var(--shadow-sm), inset 0 0 0 1px var(--line); aspect-ratio: 3 / 2; display: grid; place-items: center; padding: 22px; transition: transform .25s var(--ease), box-shadow .25s; }
+.partner:hover { transform: translateY(-3px); box-shadow: 0 18px 36px -18px rgba(13, 33, 71, .35), inset 0 0 0 1px var(--line); }
+.partner a { display: grid; place-items: center; width: 100%; height: 100%; }
+.partner img { max-width: 100%; max-height: 110px; width: auto; height: auto; object-fit: contain; border-radius: 10px; }
+.partners__cta { margin: 32px 0 0; font-weight: 600; color: var(--ink); display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; }
+
+/* ============ A3 Informa ============ */
+.posts { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
+.post-card { background: #fff; border-radius: 22px; overflow: hidden; box-shadow: var(--shadow-sm), inset 0 0 0 1px var(--line); transition: transform .25s var(--ease), box-shadow .25s; }
+.post-card:hover { transform: translateY(-4px); box-shadow: 0 22px 40px -22px rgba(13, 33, 71, .4), inset 0 0 0 1px var(--line); }
+.post-card a { display: flex; flex-direction: column; height: 100%; color: inherit; text-decoration: none; }
+.post-card > a > img, .post-card__ph { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.post-card__ph { display: grid; place-items: center; background: var(--tint); }
+.post-card__ph img { width: 42%; height: auto; }
+.post-card a > .post-card__ph > img { aspect-ratio: auto; }
+.post-card__body { padding: 20px 22px 24px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.post-card__body h3 { font-size: 20px; }
+.post-card__body p { margin: 0; color: var(--muted); }
+.post-card__meta { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--blue) !important; }
+.post-card .link { margin-top: auto; padding-top: 6px; }
+.posts__more { margin: 32px 0 0; text-align: center; }
+.posts__empty { max-width: 640px; padding: 26px 28px; border-radius: 20px; background: var(--tint); color: var(--ink); font-weight: 600; margin: 0; }
+
+/* ============ Entrada de A3 Informa ============ */
+.interior main { padding-top: 8px; }
+.article__wrap { max-width: calc(760px + var(--gutter) * 2); }
+.article__back { margin: 0 0 22px; }
+.article__back .link::after { content: none; }
+.article__head h1 { margin-top: 6px; }
+.article__lead { font-size: 20px; color: var(--muted); margin: 18px 0 0; }
+.article__author { font-weight: 700; color: var(--ink); margin: 14px 0 0; }
+.article__img { margin: 32px 0 0; border-radius: 22px; overflow: hidden; }
+.article__img img { width: 100%; height: auto; display: block; }
+.article__body { margin-top: 32px; font-size: 18px; line-height: 1.75; }
+.article__body h2 { font-size: 28px; margin: 1.6em 0 .5em; }
+.article__body h3 { font-size: 22px; margin: 1.4em 0 .4em; }
+.article__body img { max-width: 100%; height: auto; border-radius: 16px; }
+.article__body a { color: var(--blue); }
+.article__body blockquote { margin: 1.4em 0; padding: 4px 0 4px 20px; border-left: 4px solid var(--sky); color: var(--ink); font-style: italic; }
+.article__cta { margin-top: 48px; padding: 26px 28px; border-radius: 22px; background: var(--tint); display: flex; flex-wrap: wrap; gap: 14px 22px; align-items: center; justify-content: space-between; }
+.article__cta p { margin: 0; font-weight: 700; color: var(--ink); }
+
+/* ============ Botón flotante de WhatsApp ============ */
+.wa-float {
+  position: fixed; z-index: 70; right: 20px; bottom: calc(20px + env(safe-area-inset-bottom));
+  display: flex; align-items: center; gap: 8px; padding: 12px 18px 12px 14px; border-radius: 999px;
+  background: #25d366; color: #fff; font-weight: 800; font-size: 15px; text-decoration: none;
+  box-shadow: 0 14px 30px -10px rgba(18, 140, 70, .7); transition: transform .25s var(--ease), box-shadow .25s;
+}
+.wa-float:hover { transform: translateY(-3px); box-shadow: 0 18px 36px -10px rgba(18, 140, 70, .8); }
+.wa-float svg { width: 26px; height: 26px; fill: currentColor; }
+@media (max-width: 920px) {
+  .wa-float { bottom: calc(86px + env(safe-area-inset-bottom)); right: 16px; padding: 13px; }
+  .wa-float span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+}
+@media (max-width: 600px) {
+  .section__icon { width: 104px; }
+  .partners { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .partner { padding: 14px; border-radius: 16px; }
+}

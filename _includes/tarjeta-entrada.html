@@ -1,0 +1,17 @@
+{%- comment -%} Tarjeta de una entrada de A3 Informa. Recibe include.e (una entrada). {%- endcomment -%}
+{%- assign e = include.e -%}
+<article class="post-card reveal">
+  <a href="{{ e.url | relative_url }}">
+    {%- if e.imagen and e.imagen != "" %}
+    <img src="{{ e.imagen | relative_url }}" alt="{{ e.imagen_alt | default: '' | escape }}" width="1200" height="675" loading="lazy">
+    {%- else %}
+    <span class="post-card__ph"><img src="{{ site.data.informa.icono | relative_url }}" alt="" loading="lazy"></span>
+    {%- endif %}
+    <div class="post-card__body">
+      <p class="post-card__meta">{% if e.categoria and e.categoria != "" %}{{ e.categoria }} · {% endif %}<time datetime="{{ e.date | date: '%Y-%m-%d' }}">{{ e.date | date: '%d/%m/%Y' }}</time></p>
+      <h3>{{ e.title }}</h3>
+      <p>{{ e.resumen }}</p>
+      <span class="link link--claro">Leer más</span>
+    </div>
+  </a>
+</article>

@@ -27,6 +27,21 @@ No hace falta cuenta de GitHub. Cada persona tiene su propio usuario: no compart
 
 Si reemplazan una foto de Wikimedia por una propia, borren su crédito en **General → Créditos de fotografía**.
 
+### A3 Informa (blog)
+
+- Las entradas se escriben en **A3 Informa · entradas → Nueva entrada**: título, fecha, resumen
+  (dos o tres líneas: es lo que se ve en la tarjeta y en Google), categoría, autor, imagen y el texto.
+- Las tres más recientes aparecen en la portada; todas están en autismogt.org/informa/.
+- La vista previa muestra la entrada tal como quedará publicada.
+- Los textos de la sección (título, mensaje cuando aún no hay entradas) están en **Sitio web → A3 Informa**.
+
+### Impulsadores de cambio y WhatsApp
+
+- Para agregar una empresa: **Sitio web → Impulsadores de cambio → Empresas → Agregar**, con su
+  nombre, su logo y, si quieren, el enlace a su sitio.
+- El número del botón verde de WhatsApp está en **General → WhatsApp**. Si se deja vacío, el botón
+  desaparece.
+
 ## Para Haricode (administración)
 
 - Usuarios: `node herramientas/usuario-panel.js crear <usuario> "<Nombre>"`, `clave <usuario>` (nueva contraseña),

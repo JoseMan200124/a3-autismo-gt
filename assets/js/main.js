@@ -65,17 +65,18 @@
   });
   // Enlaces del pie que abren un programa concreto
   document.querySelectorAll("[data-tab]").forEach((a) =>
-    a.addEventListener("click", () => select(document.getElementById(a.dataset.tab)))
+    a.addEventListener("click", () => { const t = document.getElementById(a.dataset.tab); if (t) select(t); })
   );
 
   /* Botones "Quiero donar", "voluntario"… preseleccionan el interés del formulario */
   const interes = document.getElementById("interes");
   document.querySelectorAll("[data-interes]").forEach((a) =>
-    a.addEventListener("click", () => { interes.value = a.dataset.interes; })
+    a.addEventListener("click", () => { if (interes) interes.value = a.dataset.interes; })
   );
 
   /* Formulario: arma el correo para la bandeja de A³ */
   const form = document.getElementById("contactForm");
+  if (form) {
   const EMAIL = form.dataset.correo;
   const status = document.getElementById("formStatus");
   form.addEventListener("submit", (e) => {
@@ -109,6 +110,7 @@
   form.addEventListener("input", (e) => {
     if (e.target.getAttribute("aria-invalid") === "true" && e.target.value.trim()) e.target.removeAttribute("aria-invalid");
   });
+  }
 
   /* Parallax suave en las fotos de los banners.
      La foto avanza más lento que la página y se interpola hacia su destino
@@ -197,5 +199,6 @@
     watch.forEach((el) => so.observe(el));
   }
 
-  document.getElementById("year").textContent = new Date().getFullYear();
+  const year = document.getElementById("year");
+  if (year) year.textContent = new Date().getFullYear();
 })();

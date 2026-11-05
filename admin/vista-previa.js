@@ -15,6 +15,7 @@
   var SECCION = {
     general: 'inicio', inicio: 'inicio', nosotros: 'nosotros', programas: 'programas',
     esencia: 'esencia', fundadores: 'fundadores', apoyar: 'apoyar',
+    impulsadores: 'impulsadores', informa: 'informa',
   };
   var ANCHO = { escritorio: 1280, celular: 390 };
   var ORIGEN = window.location.origin;
@@ -47,7 +48,17 @@
           motor.registerFilter('absolute_url', function (v) { return url(v, true); });
           motor.registerFilter('markdownify', function (v) { return window.marked.parse(String(v == null ? '' : v)); });
           motor.registerFilter('jsonify', function (v) { return JSON.stringify(v == null ? null : v); });
-          return { motor: motor, plantilla: motor.parse(p.plantilla), datos: p.datos };
+          motor.registerFilter('date_to_xmlschema', function (v) {
+            var d = v instanceof Date ? v : new Date(v);
+            return isNaN(d) ? '' : d.toISOString().replace(/\.\d{3}Z$/, '+00:00');
+          });
+          motor.registerFilter('xml_escape', function (v) {
+            return String(v == null ? '' : v).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&apos;' }[c]; });
+          });
+          return {
+            motor: motor, plantilla: motor.parse(p.plantilla), datos: p.datos.data, posts: p.datos.posts || [],
+            pagina: motor.parse(p.layouts.pagina), entrada: motor.parse(p.layouts.entrada),
+          };
         });
       paquete.catch(function () { paquete = null; });
     }
@@ -191,8 +202,22 @@
       cargarPaquete().then(function (p) {
         var data = {};
         Object.keys(p.datos).forEach(function (k) { data[k] = p.datos[k]; });
+        var site = { url: ORIGEN, baseurl: '', data: data, posts: p.posts, time: new Date() };
+        if (clave === 'entradas') {
+          // Una entrada de A3 Informa: se arma con sus plantillas (entrada dentro de página).
+          var e = resolverImagenes(datosEditados, props.getAsset);
+          var page = {
+            title: e.title || 'Entrada sin título', date: e.date ? new Date(e.date) : new Date(), resumen: e.resumen || '',
+            categoria: e.categoria || '', autor: e.autor || '', imagen: e.imagen || '', imagen_alt: e.imagen_alt || '',
+            layout: 'entrada', url: '/informa/vista-previa/',
+          };
+          var cuerpo = window.marked.parse(String(e.body || ''));
+          return p.motor.render(p.entrada, { site: site, page: page, content: cuerpo }).then(function (html) {
+            return p.motor.render(p.pagina, { site: site, page: page, content: html });
+          });
+        }
         data[clave] = resolverImagenes(datosEditados, props.getAsset);
-        return p.motor.render(p.plantilla, { site: { url: ORIGEN, baseurl: '', data: data } });
+        return p.motor.render(p.plantilla, { site: site });
       }).then(function (html) {
         if (turno !== yo.turno) return; // llegó otro cambio mientras se armaba
         html = html.replace(/<head([^>]*)>/i, function (m) { return m + EXTRA; });
@@ -234,7 +259,7 @@
     },
   });
 
-  Object.keys(SECCION).forEach(function (clave) {
+  Object.keys(SECCION).concat(['entradas']).forEach(function (clave) {
     CMS.registerPreviewTemplate(clave, function (props) {
       return h(Vista, Object.assign({}, props, { archivoVista: clave }));
     });

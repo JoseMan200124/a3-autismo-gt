@@ -59,6 +59,15 @@ collections:
     - label: Ubicación
       name: ubicacion
       widget: string
+    - label: WhatsApp (botón flotante)
+      name: whatsapp
+      widget: string
+      required: false
+      hint: Número de Guatemala, por ejemplo 5416-9436. Si se deja vacío, el botón no aparece.
+    - label: Mensaje que llega por WhatsApp
+      name: whatsapp_mensaje
+      widget: string
+      required: false
     - label: Título en Google
       name: seo_titulo
       widget: string
@@ -602,6 +611,10 @@ collections:
     - label: Antetítulo
       name: antetitulo
       widget: string
+    - label: Ícono de «Súmate»
+      name: icono
+      widget: image
+      required: false
     - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
       label: Título
       name: titulo
@@ -749,3 +762,115 @@ collections:
       - label: Imagen
         name: imagen
         widget: image
+  - name: impulsadores
+    label: Impulsadores de cambio
+    file: _data/impulsadores.yml
+    fields:
+    - label: Antetítulo
+      name: antetitulo
+      widget: string
+    - label: Ícono
+      name: icono
+      widget: image
+      required: false
+    - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
+      label: Título
+      name: titulo
+      widget: string
+    - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
+      label: Texto
+      name: texto
+      widget: text
+    - label: Empresas
+      name: empresas
+      widget: list
+      summary: '{{fields.nombre}}'
+      fields:
+      - label: Nombre de la empresa
+        name: nombre
+        widget: string
+      - label: Logo
+        name: logo
+        widget: image
+      - label: Enlace a su sitio (opcional)
+        name: enlace
+        widget: string
+        required: false
+    - label: Invitación al final
+      name: invitacion
+      widget: string
+    - label: Botón de la invitación
+      name: boton
+      widget: string
+  - name: informa
+    label: A3 Informa (textos de la sección)
+    file: _data/informa.yml
+    fields:
+    - label: Antetítulo
+      name: antetitulo
+      widget: string
+    - label: Ícono
+      name: icono
+      widget: image
+      required: false
+    - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
+      label: Título
+      name: titulo
+      widget: string
+    - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
+      label: Texto
+      name: texto
+      widget: text
+    - label: Mensaje mientras no hay entradas
+      name: vacio
+      widget: text
+    - label: Botón «Ver todas»
+      name: boton_todas
+      widget: string
+- name: entradas
+  label: A3 Informa · entradas
+  label_singular: Entrada
+  description: Noticias, guías e historias del blog. Cada entrada se publica en autismogt.org/informa/ y aparece en la portada.
+  folder: _posts
+  create: true
+  slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+  summary: '{{title}} · {{date}}'
+  sortable_fields: [date, title]
+  editor:
+    preview: true
+  fields:
+  - label: Título
+    name: title
+    widget: string
+  - label: Fecha
+    name: date
+    widget: datetime
+    picker_utc: false
+  - label: Resumen
+    name: resumen
+    widget: text
+    hint: Dos o tres líneas. Se ve en la tarjeta de la portada y en Google.
+  - label: Categoría (opcional)
+    name: categoria
+    widget: select
+    required: false
+    options: [Noticias, Guías, Historias, Eventos, Investigación]
+  - label: Autor (opcional)
+    name: autor
+    widget: string
+    required: false
+  - label: Imagen principal (opcional)
+    name: imagen
+    widget: image
+    required: false
+  - label: Descripción de la imagen
+    name: imagen_alt
+    widget: string
+    required: false
+  - label: Plantilla
+    name: layout
+    widget: hidden
+    default: entrada
+  - label: Contenido
+    name: body
+    widget: markdown

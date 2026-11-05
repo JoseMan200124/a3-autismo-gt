@@ -9,13 +9,15 @@ const raiz = path.join(__dirname, '..');
 const destino = path.join(raiz, '_site', 'admin', 'vista');
 const datosJson = path.join(destino, 'datos.json');
 
-const plantilla = fs.readFileSync(path.join(raiz, 'index.html'), 'utf8').replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/, '');
+const sinFrontMatter = (f) => fs.readFileSync(path.join(raiz, f), 'utf8').replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/, '');
+const plantilla = sinFrontMatter('index.html');
+const layouts = { pagina: sinFrontMatter('_layouts/pagina.html'), entrada: sinFrontMatter('_layouts/entrada.html') };
 const includes = {};
 for (const f of fs.readdirSync(path.join(raiz, '_includes'))) {
   includes[f] = fs.readFileSync(path.join(raiz, '_includes', f), 'utf8');
 }
 const datos = JSON.parse(fs.readFileSync(datosJson, 'utf8'));
 
-fs.writeFileSync(path.join(destino, 'paquete.json'), JSON.stringify({ plantilla, includes, datos }));
+fs.writeFileSync(path.join(destino, 'paquete.json'), JSON.stringify({ plantilla, layouts, includes, datos }));
 fs.unlinkSync(datosJson);
-console.log(`[vista previa] paquete.json listo (${Object.keys(datos).length} archivos de datos, ${Object.keys(includes).length} includes)`);
+console.log(`[vista previa] paquete.json listo (${Object.keys(datos.data).length} archivos de datos, ${datos.posts.length} entradas, ${Object.keys(includes).length} includes)`);

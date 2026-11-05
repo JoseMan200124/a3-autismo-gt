@@ -1,0 +1,20 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="es-GT">
+  <title>A3 Informa · {{ site.data.general.nombre | xml_escape }}</title>
+  <link href="{{ '/informa/feed.xml' | absolute_url }}" rel="self"/>
+  <link href="{{ '/informa/' | absolute_url }}"/>
+  <id>{{ '/informa/' | absolute_url }}</id>
+  <updated>{% if site.posts.size > 0 %}{{ site.posts.first.date | date_to_xmlschema }}{% else %}{{ site.time | date_to_xmlschema }}{% endif %}</updated>
+  {%- for e in site.posts limit: 20 %}
+  <entry>
+    <title>{{ e.title | xml_escape }}</title>
+    <link href="{{ e.url | absolute_url }}"/>
+    <id>{{ e.url | absolute_url }}</id>
+    <updated>{{ e.date | date_to_xmlschema }}</updated>
+    <summary>{{ e.resumen | xml_escape }}</summary>
+  </entry>
+  {%- endfor %}
+</feed>

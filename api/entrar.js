@@ -78,14 +78,17 @@ module.exports = async (req, res) => {
   res.setHeader('Content-Type', 'text/html; charset=utf-8');
   res.setHeader('Cache-Control', 'no-store');
   res.setHeader('X-Frame-Options', 'DENY');
-  res.setHeader('Referrer-Policy', 'no-referrer');
+  res.setHeader('Referrer-Policy', 'same-origin');
 
   if (req.method === 'GET') return res.status(200).send(pagina());
   if (req.method !== 'POST') return res.status(405).send(pagina({ error: 'Método no permitido.' }));
 
-  // Solo se aceptan formularios enviados desde el propio sitio.
+  // Solo se aceptan formularios enviados desde el propio sitio. Algunos navegadores
+  // mandan «Origin: null»; en ese caso vale Sec-Fetch-Site: same-origin.
   const origen = req.headers.origin;
-  if (origen && origen !== ORIGEN) return res.status(403).send(pagina({ error: 'Origen no permitido.' }));
+  const mismoSitio = req.headers['sec-fetch-site'];
+  const permitido = origen === ORIGEN || ((!origen || origen === 'null') && (!mismoSitio || mismoSitio === 'same-origin'));
+  if (!permitido) return res.status(403).send(pagina({ error: 'Origen no permitido.' }));
 
   const { usuario = '', clave = '' } = await leerFormulario(req);
   const u = autenticar(usuario, clave);

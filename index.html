@@ -15,16 +15,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ g.seo_titulo | escape }}</title>
   <meta name="description" content="{{ g.seo_descripcion | escape }}">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="https://autismogt.org/">
+  <link rel="alternate" hreflang="es-GT" href="https://autismogt.org/">
+  <link rel="alternate" hreflang="x-default" href="https://autismogt.org/">
+  <meta name="author" content="{{ g.nombre | escape }}">
+  <meta name="creator" content="Haricode · https://www.haricode.tech/">
   <meta name="theme-color" content="#062a63">
   <link rel="icon" type="image/png" href="{{ '/assets/img/favicon.png' | relative_url }}">
   <link rel="apple-touch-icon" href="{{ '/assets/img/apple-touch-icon.png' | relative_url }}">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_GT">
-  <meta property="og:title" content="{{ g.nombre | escape }}">
+  <meta property="og:site_name" content="{{ g.nombre | escape }}">
+  <meta property="og:url" content="https://autismogt.org/">
+  <meta property="og:title" content="{{ g.seo_titulo | escape }}">
   <meta property="og:description" content="{{ g.redes_descripcion | escape }}">
   <meta property="og:image" content="{{ g.logo_redes | absolute_url }}">
+  <meta property="og:image:alt" content="Logo de {{ g.nombre | escape }}">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{ g.seo_titulo | escape }}">
+  <meta name="twitter:description" content="{{ g.redes_descripcion | escape }}">
+  <meta name="twitter:image" content="{{ g.logo_redes | absolute_url }}">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,15 +47,52 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "NGO",
-    "name": {{ g.nombre | jsonify }},
-    "alternateName": {{ g.nombre_alterno | jsonify }},
-    "slogan": {{ g.lema | jsonify }},
-    "foundingDate": "2026-08",
-    "foundingLocation": "Guatemala",
-    "areaServed": "Guatemala",
-    "email": {{ g.correo | jsonify }},
-    "logo": {{ g.logo_redes | absolute_url | jsonify }}
+    "@graph": [
+      {
+        "@type": "NGO",
+        "@id": "https://autismogt.org/#organizacion",
+        "name": {{ g.nombre | jsonify }},
+        "alternateName": {{ g.nombre_alterno | jsonify }},
+        "url": "https://autismogt.org/",
+        "slogan": {{ g.lema | jsonify }},
+        "description": {{ g.seo_descripcion | jsonify }},
+        "foundingDate": "2026-08",
+        "foundingLocation": { "@type": "Place", "name": "Guatemala" },
+        "areaServed": { "@type": "Country", "name": "Guatemala" },
+        "knowsAbout": ["Autismo", "Trastorno del espectro autista", "Evaluación diagnóstica", "Acompañamiento a familias", "Inclusión"],
+        "email": {{ g.correo | jsonify }},
+        "contactPoint": { "@type": "ContactPoint", "contactType": "Información", "email": {{ g.correo | jsonify }}, "availableLanguage": "es", "areaServed": "GT" },
+        "logo": { "@type": "ImageObject", "url": {{ g.logo_redes | absolute_url | jsonify }}, "width": 520, "height": 454 }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://www.haricode.tech/#organization",
+        "name": "Haricode",
+        "url": "https://www.haricode.tech/",
+        "description": "Empresa de desarrollo de software, aplicaciones y páginas web en Guatemala."
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://autismogt.org/#sitio",
+        "url": "https://autismogt.org/",
+        "name": {{ g.nombre | jsonify }},
+        "inLanguage": "es-GT",
+        "publisher": { "@id": "https://autismogt.org/#organizacion" },
+        "creator": { "@id": "https://www.haricode.tech/#organization" }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://autismogt.org/#pagina",
+        "url": "https://autismogt.org/",
+        "name": {{ g.seo_titulo | jsonify }},
+        "description": {{ g.seo_descripcion | jsonify }},
+        "inLanguage": "es-GT",
+        "isPartOf": { "@id": "https://autismogt.org/#sitio" },
+        "about": { "@id": "https://autismogt.org/#organizacion" },
+        "primaryImageOfPage": {{ g.logo_redes | absolute_url | jsonify }},
+        "creator": { "@id": "https://www.haricode.tech/#organization" }
+      }
+    ]
   }
   </script>
 </head>
@@ -503,6 +552,9 @@
     <div class="wrap footer__legal">
       <p>© <span id="year">2026</span> {{ g.nombre }}. Todos los derechos reservados.</p>
       <p>{{ g.pie_firma }}</p>
+    </div>
+    <div class="wrap footer__haricode">
+      <p>Diseño y desarrollo web por <a href="https://www.haricode.tech/?utm_source=autismogt.org&amp;utm_medium=referral&amp;utm_campaign=creditos_pie" target="_blank" rel="noopener" title="Haricode: desarrollo de software, apps y páginas web en Guatemala">Haricode</a> · Desarrollo de software y páginas web en Guatemala</p>
     </div>
   </footer>
 

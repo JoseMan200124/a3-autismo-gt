@@ -522,7 +522,7 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spa
 .credits ul { margin: 14px 0 10px; padding-left: 18px; display: grid; gap: 4px; }
 .credits a { color: #c9d8ee; }
 .credits p { margin: 0; color: #7f95b8; }
-.footer__legal { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px 24px; padding-top: 24px; padding-bottom: 32px; border-top: 1px solid rgba(255, 255, 255, .08); font-size: 13.5px; }
+.footer__legal { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px 24px; padding-top: 24px; padding-bottom: 16px; border-top: 1px solid rgba(255, 255, 255, .08); font-size: 13.5px; }
 .footer__legal p { margin: 0; }
 
 /* ---------- Animación de entrada ---------- */
@@ -616,3 +616,9 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spa
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .js .reveal { opacity: 1; transform: none; }
 }
+
+/* Créditos de Haricode (fijos, no se editan desde el panel) */
+.footer__haricode { padding-bottom: 28px; font-size: 12.5px; color: #7f95b8; text-align: center; }
+.footer__haricode p { margin: 0; }
+.footer__haricode a { color: #c9d8ee; font-weight: 700; text-decoration: none; border-bottom: 1px solid rgba(201, 216, 238, .35); transition: color .2s, border-color .2s; }
+.footer__haricode a:hover { color: #fff; border-color: #fff; }

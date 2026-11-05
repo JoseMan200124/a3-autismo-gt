@@ -15,3 +15,6 @@ exclude:
   - vercel.json
   - _config.vercel.yml
   - vendor
+  - api
+  - herramientas
+  - package.json

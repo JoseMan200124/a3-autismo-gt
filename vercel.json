@@ -2,5 +2,30 @@
   "framework": "jekyll",
   "installCommand": "bundle install",
   "buildCommand": "bundle exec jekyll build --config _config.yml,_config.vercel.yml",
-  "outputDirectory": "_site"
+  "outputDirectory": "_site",
+  "rewrites": [
+    {
+      "source": "/gh/api/graphql",
+      "destination": "/api/gh?__p=graphql"
+    },
+    {
+      "source": "/gh/api/v3/:ruta*",
+      "destination": "/api/gh?__p=:ruta*"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/admin/(.*)",
+      "headers": [
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "no-cache"
+        }
+      ]
+    }
+  ]
 }

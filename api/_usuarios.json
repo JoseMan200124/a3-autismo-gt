@@ -1,0 +1,22 @@
+[
+  {
+    "usuario": "jose",
+    "nombre": "José Man",
+    "hash": "scrypt$16384$8$1$uSHAkxQVqoYABl3n_hydUQ$WNMK1Ksm0eGfjKbsIJkgbhqTVcROPn-8pp3ZCP_Vjv8"
+  },
+  {
+    "usuario": "editor1",
+    "nombre": "Editor 1",
+    "hash": "scrypt$16384$8$1$DWTcioj7MI2qk1_y_su6Jw$zCGo3D0oqFHi7kJ4TLBJnLU_8ajAERr8blybE2H0y2A"
+  },
+  {
+    "usuario": "editor2",
+    "nombre": "Editor 2",
+    "hash": "scrypt$16384$8$1$JKLxJaN2x8XnqVveDQh1Ng$_bQdkBQDXKbPnFMzBdjJmSyIsn5vSPOipL4XksRYNzs"
+  },
+  {
+    "usuario": "editor3",
+    "nombre": "Editor 3",
+    "hash": "scrypt$16384$8$1$xkux4eQsf5Dz9Jz5QinH5g$66SsDTme1oSrLvkda1i8AaqOytnhvFb8PfnunOgVQ5c"
+  }
+]

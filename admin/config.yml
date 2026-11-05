@@ -1,13 +1,22 @@
 # Panel de edición del sitio (Sveltia CMS). Cada guardado es un commit en main y
 # Vercel vuelve a publicar el sitio solo, en uno o dos minutos.
+# Se entra con usuario y contraseña del sitio (api/entrar.js); no hace falta cuenta
+# de GitHub. El servidor (api/gh.js) guarda los cambios con su propio token.
 backend:
   name: github
   repo: JoseMan200124/a3-autismo-gt
   branch: main
+  base_url: https://autismogt.org
+  auth_endpoint: api/entrar
+  auth_methods: [oauth]
+  api_root: https://autismogt.org/gh/api/v3
+  graphql_api_root: https://autismogt.org/gh/api/graphql
   commit_messages:
-    update: 'Panel: actualiza {{slug}}'
-    uploadMedia: 'Panel: sube {{path}}'
-    deleteMedia: 'Panel: borra {{path}}'
+    create: 'Panel ({{author-name}}): crea {{slug}}'
+    update: 'Panel ({{author-name}}): actualiza {{slug}}'
+    delete: 'Panel ({{author-name}}): borra {{slug}}'
+    uploadMedia: 'Panel ({{author-name}}): sube {{path}}'
+    deleteMedia: 'Panel ({{author-name}}): borra {{path}}'
 site_url: https://autismogt.org/
 display_url: https://autismogt.org/
 media_folder: assets/img/fotos

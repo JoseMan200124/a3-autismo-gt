@@ -1,52 +1,40 @@
-antetitulo: "Historia fundacional"
-titulo: "Nacimos de la ciencia, la experiencia *y el amor.*"
-texto: "A³ fue fundada en agosto de 2026 por profesionales guatemaltecos de la salud mental y la educación, personas autistas y familiares de personas autistas, unidos por el compromiso de construir una sociedad más justa, accesible e inclusiva."
+antetitulo: Historia fundacional
+titulo: Nacimos de la ciencia, la experiencia *y el amor.*
+texto: A³ fue fundada en agosto de 2026 por profesionales guatemaltecos de la salud mental y la educación, personas autistas y familiares de personas autistas, unidos por el compromiso de construir una sociedad más justa, accesible e inclusiva.
 personas:
-  - nombre: "Lcda. Bárbara Mejía"
-    iniciales: "BM"
-    foto: ""
-    rol: "Psicóloga · Diagnóstico e intervención"
-    texto: "Especialista en diagnóstico e intervención en autismo. Promueve espacios de oportunidad para las personas autistas desde sus necesidades como ciudadanos, en el contexto de nuestra realidad social y cultural."
-    color: "blue"
-  - nombre: "Lcda. Ana José Espinoza Ubieto"
-    iniciales: "AE"
-    foto: ""
-    rol: "Psicóloga y educadora"
-    texto: "Con experiencia en programas dirigidos a personas autistas y sus familias. Impulsa la detección temprana, el acceso a apoyos de calidad y una sociedad más inclusiva."
-    color: "purple"
-  - nombre: "Dr. Alejandro Paíz"
-    iniciales: "AP"
-    foto: ""
-    rol: "Psiquiatra de adultos · Padre"
-    texto: "Psiquiatra de población adulta y padre de un chico autista, comprometido con la causa y en busca de oportunidades para la población guatemalteca."
-    color: "green"
-  - nombre: "Dra. Alejandra Arroyave"
-    iniciales: "AA"
-    foto: ""
-    rol: "Psiquiatra infantil · Madre"
-    texto: "Apasionada de la salud mental y madre de un chico dentro del espectro. Promueve el diagnóstico temprano y las intervenciones integrales."
-    color: "orange"
-  - nombre: "Karla de Pardo"
-    iniciales: "KP"
-    foto: ""
-    rol: "Madre de un adolescente autista"
-    texto: "Con un interés genuino por aportar a la comunidad autista guatemalteca desde su experiencia de vida y sus recursos profesionales."
-    color: "yellow-ink"
-  - nombre: "Lcda. Ligia López"
-    iniciales: "LL"
-    foto: ""
-    rol: "Abogada"
-    texto: "Busca generar oportunidades para la población autista desde la legislación, la inclusión y los proyectos educativos."
-    color: "navy"
-  - nombre: "Lcda. Katherina Saito Noriega"
-    iniciales: "KS"
-    foto: ""
-    rol: "Psicóloga clínica · Terapeuta sensoriomotora"
-    texto: "Más de 25 años desarrollando programas clínicos y educativos para personas autistas, neurodivergentes y sus familias, incluyendo DIRFloortime® (niveles 1–4)."
-    color: "sky"
-  - nombre: "Ing. Indira Araya"
-    iniciales: "IA"
-    foto: ""
-    rol: "Ingeniera Mecatrónica · Profesional en Liderazgo Técnico"
-    texto: "Ingeniera Mecatrónica con experiencia en liderazgo técnico, gestión y coordinación de equipos. Se caracteriza por su pensamiento estratégico, capacidad de innovación y enfoque en la resolución de problemas, aportando sus conocimientos y habilidades al desarrollo de iniciativas que promueven la inclusión y la igualdad de oportunidades."
-    color: "purple"
+  - nombre: Lcda. Bárbara Mejía
+    iniciales: BM
+    foto: ''
+    rol: Psicóloga · Diagnóstico e intervención
+    texto: Especialista en diagnóstico e intervención en autismo. Promueve espacios de oportunidad para las personas autistas desde sus necesidades como ciudadanos, en el contexto de nuestra realidad social y cultural.
+    color: blue
+  - nombre: Lcda. Ana José Espinoza Ubieto
+    iniciales: AE
+    foto: ''
+    rol: Psicóloga y educadora
+    texto: Con experiencia en programas dirigidos a personas autistas y sus familias. Impulsa la detección temprana, el acceso a apoyos de calidad y una sociedad más inclusiva.
+    color: purple
+  - nombre: Karla de Pardo
+    iniciales: KP
+    foto: ''
+    rol: Madre de un adolescente autista
+    texto: Con un interés genuino por aportar a la comunidad autista guatemalteca desde su experiencia de vida y sus recursos profesionales.
+    color: yellow-ink
+  - nombre: Lcda. Ligia López
+    iniciales: LL
+    foto: ''
+    rol: Abogada
+    texto: Busca generar oportunidades para la población autista desde la legislación, la inclusión y los proyectos educativos.
+    color: navy
+  - nombre: Lcda. Katherina Saito Noriega
+    iniciales: KS
+    foto: ''
+    rol: Psicóloga clínica · Terapeuta sensoriomotora
+    texto: Más de 25 años desarrollando programas clínicos y educativos para personas autistas, neurodivergentes y sus familias, incluyendo DIRFloortime® (niveles 1–4).
+    color: sky
+  - nombre: Ing. Indira Araya
+    iniciales: IA
+    foto: ''
+    rol: Ingeniera Mecatrónica · Profesional en Liderazgo Técnico
+    texto: Ingeniera Mecatrónica con experiencia en liderazgo técnico, gestión y coordinación de equipos. Se caracteriza por su pensamiento estratégico, capacidad de innovación y enfoque en la resolución de problemas, aportando sus conocimientos y habilidades al desarrollo de iniciativas que promueven la inclusión y la igualdad de oportunidades.
+    color: purple

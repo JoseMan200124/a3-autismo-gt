@@ -1,48 +1,48 @@
 portada:
-  antetitulo: "Asociación guatemalteca · Desde 2026"
-  titulo: "Diagnóstico, acompañamiento e inclusión"
-  subtitulo: "para personas autistas en *Guatemala.*"
-  texto: "Unimos a psicólogas, psiquiatras, familias y personas autistas para acercar evaluaciones diagnósticas comprensivas, acompañar a cada familia y abrir espacios de inclusión en todo el país. **Porque ninguna familia debería recorrer este camino sola.**"
-  boton_secundario: "Necesito orientación"
-  confianza: "**8 fundadores** de la salud mental, la educación y el derecho, madres, padres y una mujer autista."
-  imagen: "/assets/img/hero.webp"
-  imagen_alt: "Símbolo de A³: dos personas forman un infinito multicolor con los brazos en alto"
-  burbuja: "/assets/img/fotos/ruta-evaluacion.webp"
-  burbuja_alt: "Profesional de la salud con materiales de evaluación del desarrollo"
-  dato_cifra: "1 de cada 127"
-  dato_texto: "personas en el mundo es autista"
-  dato_fuente: "Organización Mundial de la Salud, 2025"
+  antetitulo: Asociación guatemalteca · Desde 2026
+  titulo: Diagnóstico, acompañamiento e inclusión
+  subtitulo: para personas autistas en *Guatemala.*
+  texto: Unimos a psicólogas, psiquiatras, familias y personas autistas para acercar evaluaciones diagnósticas comprensivas, acompañar a cada familia y abrir espacios de inclusión en todo el país. **Porque ninguna familia debería recorrer este camino sola.**
+  boton_secundario: Necesito orientación
+  confianza: '**8 fundadores** de la salud mental, la educación y el derecho, madres, padres y una mujer autista.'
+  imagen: /assets/img/hero.webp
+  imagen_alt: 'Símbolo de A³: dos personas forman un infinito multicolor con los brazos en alto'
+  burbuja: /assets/img/fotos/19C0028E-78F1-44F2-84A3-80636B6DFB1E.webp
+  burbuja_alt: Profesional de la salud con materiales de evaluación del desarrollo
+  dato_cifra: 1 de cada 127
+  dato_texto: personas en el mundo es autista
+  dato_fuente: Organización Mundial de la Salud, 2025
 franja:
-  - texto: "Evaluamos"
-  - texto: "*acompañamos*"
-  - texto: "Formamos"
-  - texto: "*incluimos*"
-  - texto: "Conectamos"
-  - texto: "*impulsamos*"
+  - texto: Evaluamos
+  - texto: '*acompañamos*'
+  - texto: Formamos
+  - texto: '*incluimos*'
+  - texto: Conectamos
+  - texto: '*impulsamos*'
 porque:
-  antetitulo: "Por qué existimos"
-  titulo: "El autismo está en todas partes. *El acceso, todavía no.*"
-  cifra_a: "1"
-  cifra_b: "127"
-  texto: "personas en el mundo es autista. Aun así, la OMS reconoce que <q>se desconoce la prevalencia del autismo en muchos países de ingreso bajo y mediano</q>."
-  fuente: "Fuente: OMS, nota descriptiva sobre autismo (2025)"
-  fuente_enlace: "https://www.who.int/es/news-room/fact-sheets/detail/autism-spectrum-disorders"
+  antetitulo: Por qué existimos
+  titulo: El autismo está en todas partes. *El acceso, todavía no.*
+  cifra_a: '1'
+  cifra_b: '127'
+  texto: personas en el mundo es autista. Aun así, la OMS reconoce que <q>se desconoce la prevalencia del autismo en muchos países de ingreso bajo y mediano</q>.
+  fuente: 'Fuente: OMS, nota descriptiva sobre autismo (2025)'
+  fuente_enlace: https://www.who.int/es/news-room/fact-sheets/detail/autism-spectrum-disorders
   brechas:
-    - titulo: "Diagnósticos que llegan tarde, o no llegan"
-      texto: "Sin una evaluación comprensiva, muchas personas crecen sin que nadie comprenda sus necesidades ni reconozca sus fortalezas."
-      respuesta: "Nuestra respuesta: **Ruta**"
-      programa: "ruta"
-      color: "sky"
-    - titulo: "Familias que enfrentan el diagnóstico solas"
-      texto: "Recibir un diagnóstico sin orientación puede ser abrumador. Las familias necesitan información clara y alguien que camine a su lado."
-      respuesta: "Nuestra respuesta: **Travesía**"
-      programa: "travesia"
-      color: "purple"
-    - titulo: "Comunidades sin información ni espacios"
-      texto: "Donde los servicios especializados son limitados, la detección temprana y la inclusión parecen lejanas."
-      respuesta: "Nuestra respuesta: **A³ en movimiento** y **Conexiones**"
-      programa: "movimiento"
-      color: "orange"
+    - titulo: Diagnósticos que llegan tarde, o no llegan
+      texto: Sin una evaluación comprensiva, muchas personas crecen sin que nadie comprenda sus necesidades ni reconozca sus fortalezas.
+      respuesta: 'Nuestra respuesta: **Ruta**'
+      programa: ruta
+      color: sky
+    - titulo: Familias que enfrentan el diagnóstico solas
+      texto: Recibir un diagnóstico sin orientación puede ser abrumador. Las familias necesitan información clara y alguien que camine a su lado.
+      respuesta: 'Nuestra respuesta: **Travesía**'
+      programa: travesia
+      color: purple
+    - titulo: Comunidades sin información ni espacios
+      texto: Donde los servicios especializados son limitados, la detección temprana y la inclusión parecen lejanas.
+      respuesta: 'Nuestra respuesta: **A³ en movimiento** y **Conexiones**'
+      programa: movimiento
+      color: orange
 manifiesto:
-  frase: "“El diagnóstico no te limita, *te expande.*”"
-  imagen: "/assets/img/fotos/antigua-aerea.webp"
+  frase: “El diagnóstico no te limita, *te expande.*” Ing. Indira Araya
+  imagen: /assets/img/fotos/antigua-aerea.webp

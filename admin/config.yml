@@ -867,6 +867,12 @@ collections:
     name: imagen_alt
     widget: string
     required: false
+  - label: Publicada
+    name: published
+    widget: boolean
+    default: true
+    required: false
+    hint: Apágalo para guardarla como borrador. Solo se ve en autismogt.org cuando está encendido.
   - label: Plantilla
     name: layout
     widget: hidden

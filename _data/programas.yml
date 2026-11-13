@@ -7,7 +7,7 @@ lista:
     paso: La sospecha se vuelve comprensión
     color: sky
     icono: /assets/img/ruta.webp
-    foto: /assets/img/fotos/61E6D073-DC3A-40D8-8863-E4F175B19C68.png
+    foto: /assets/img/fotos/61E6D073-DC3A-40D8-8863-E4F175B19C68.webp
     foto_alt: Profesional de la salud prepara materiales didácticos de evaluación del desarrollo en un consultorio
     antetitulo: Programa 01 · Ruta A³
     titulo: Evaluación diagnóstica clínica comprensiva y multidisciplinaria
@@ -23,7 +23,7 @@ lista:
     paso: La familia no camina sola
     color: purple-lt
     icono: /assets/img/travesia.webp
-    foto: /assets/img/fotos/62757ef9-c747-4dd1-a736-ce6821ef99f7.png
+    foto: /assets/img/fotos/62757ef9-c747-4dd1-a736-ce6821ef99f7.webp
     foto_alt: Abuela, madre y bebé, tres generaciones de una familia en Chichicastenango
     antetitulo: Programa 02 · Travesía A³
     titulo: Orientación y acompañamiento para familias
@@ -39,7 +39,7 @@ lista:
     paso: La comunidad abre sus puertas
     color: green-lt
     icono: /assets/img/conexiones.webp
-    foto: /assets/img/fotos/8a90c472-9cd3-4a06-8694-118e004efcb0.png
+    foto: /assets/img/fotos/8a90c472-9cd3-4a06-8694-118e004efcb0.webp
     foto_alt: Barriletes gigantes y familias reunidas en el Festival de Sumpango
     antetitulo: Programa 03 · Conexiones A³
     titulo: Inclusión, participación y encuentro comunitario

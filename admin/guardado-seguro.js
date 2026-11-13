@@ -87,7 +87,7 @@
           headline: input.message.headline + ' (parte ' + (i + 1) + ' de ' + grupos.length + ')',
         }),
       });
-      respuesta = await fetchOriginal(url, Object.assign({}, init, {
+      respuesta = await conDiagnostico(url, Object.assign({}, init, {
         body: JSON.stringify(Object.assign({}, cuerpo, { variables: Object.assign({}, cuerpo.variables, { input: parte }) })),
       }));
       if (ultimo) return respuesta;
@@ -99,6 +99,58 @@
       cabeza = oid;
     }
     return respuesta;
+  }
+
+  // ---------- 3) Diagnóstico: cada fallo queda en los registros de Vercel ----------
+  function reportar(datos) {
+    try {
+      fetchOriginal('/api/diag', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' }, keepalive: true,
+        body: JSON.stringify(Object.assign({ pagina: location.hash.slice(0, 120) }, datos)),
+      }).catch(function () {});
+    } catch (e) { /* nada */ }
+  }
+  window.addEventListener('error', function (e) {
+    reportar({ tipo: 'error-js', msg: String(e.message || '').slice(0, 300), src: String(e.filename || '').slice(-80), linea: e.lineno });
+  });
+  window.addEventListener('unhandledrejection', function (e) {
+    var r = e.reason || {};
+    reportar({ tipo: 'promesa', msg: String(r.message || r).slice(0, 300), causa: String((r.cause && (r.cause.message || r.cause)) || '').slice(0, 300) });
+  });
+  // Los avisos de error que muestra Sveltia (toasts) también se registran.
+  new MutationObserver(function (cambios) {
+    cambios.forEach(function (c) {
+      c.addedNodes.forEach(function (n) {
+        if (n.nodeType !== 1) return;
+        var t = (n.textContent || '').trim();
+        if (/error/i.test(t) && t.length < 400) reportar({ tipo: 'aviso', msg: t });
+      });
+    });
+  }).observe(document.documentElement, { childList: true, subtree: true });
+
+  async function conDiagnostico(recurso, init) {
+    var url = typeof recurso === 'string' ? recurso : (recurso && recurso.url) || '';
+    var esPanel = url.indexOf('/gh/api/') !== -1;
+    var tam = init && typeof init.body === 'string' ? init.body.length : 0;
+    var mutacion = tam && init.body.indexOf('createCommitOnBranch') !== -1;
+    var resp;
+    try {
+      resp = await fetchOriginal(recurso, init);
+    } catch (e) {
+      if (esPanel) reportar({ tipo: 'red', url: url.slice(-80), bytes: tam, mutacion: mutacion, msg: String(e && e.message || e) });
+      throw e;
+    }
+    if (esPanel && (mutacion || !resp.ok)) {
+      var texto = '';
+      try { texto = (await resp.clone().text()).slice(0, 600); } catch (e) { /* nada */ }
+      var conErrores = /"errors"\s*:/.test(texto);
+      if (!resp.ok || conErrores) {
+        reportar({ tipo: 'http', url: url.slice(-80), status: resp.status, bytes: tam, mutacion: mutacion, resp: texto });
+      } else if (mutacion) {
+        reportar({ tipo: 'guardado-ok', bytes: tam });
+      }
+    }
+    return resp;
   }
 
   window.fetch = async function (recurso, init) {
@@ -117,6 +169,7 @@
               var mb = (e.bytes * 0.75 / 1048576).toFixed(1);
               avisar('No se pudo guardar: el archivo «' + nombre + '» pesa ' + mb + ' MB y el máximo es 2,5 MB. ' +
                 'Quítalo, achica la foto (o haz una captura de pantalla de ella) y vuelve a subirla.');
+              reportar({ tipo: 'foto-grande', archivo: nombre, mb: mb });
               return respuestaError('Archivo demasiado grande: ' + nombre);
             }
             throw e;
@@ -126,6 +179,6 @@
     } catch (e) {
       console.error('[panel] guardado en partes', e);
     }
-    return fetchOriginal(recurso, init);
+    return conDiagnostico(recurso, init);
   };
 })();

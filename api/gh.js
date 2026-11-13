@@ -81,7 +81,10 @@ module.exports = async (req, res) => {
     let cuerpo;
     try { cuerpo = await leerCuerpo(req); } catch { return json(res, 400, { message: 'JSON no válido.' }); }
     if (!graphqlPermitido(cuerpo)) return json(res, 403, { message: 'Operación no permitida desde el panel.' });
-    if (/\bmutation\b/.test(cuerpo.query)) console.log(`[panel] guardado por ${editor.usuario}`);
+    if (/\bmutation\b/.test(cuerpo.query)) {
+      const adds = (cuerpo.variables && cuerpo.variables.input && cuerpo.variables.input.fileChanges && cuerpo.variables.input.fileChanges.additions) || [];
+      console.log(`[panel] guardado por ${editor.usuario}: ${adds.map((a) => a.path + ' (' + Math.round(String(a.contents || '').length * 0.75 / 1024) + ' KB)').join(', ')}`);
+    }
     destino = 'https://api.github.com/graphql';
     opciones.headers['Content-Type'] = 'application/json';
     opciones.body = JSON.stringify(cuerpo);
@@ -107,5 +110,8 @@ module.exports = async (req, res) => {
     if (v) res.setHeader(h, h === 'link' ? v.replaceAll('https://api.github.com/', ORIGEN + '/gh/api/v3/') : v);
   }
   const datos = Buffer.from(await resp.arrayBuffer());
+  if (ruta === '/graphql' && (resp.status >= 400 || datos.includes('"errors"'))) {
+    console.log(`[panel] GitHub respondió ${resp.status}: ${datos.toString().slice(0, 600)}`);
+  }
   return res.status(resp.status).send(datos);
 };

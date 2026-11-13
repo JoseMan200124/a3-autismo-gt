@@ -4,13 +4,13 @@ texto: A³ fue fundada en agosto de 2026 por profesionales guatemaltecos de la s
 personas:
   - nombre: Lcda. Bárbara Mejía
     iniciales: BM
-    foto: ''
+    foto: /assets/img/fotos/cd001dd6-e811-4309-abdd-6c1a9787d807.webp
     rol: Psicóloga · Diagnóstico e intervención
     texto: Especialista en diagnóstico e intervención en autismo. Promueve espacios de oportunidad para las personas autistas desde sus necesidades como ciudadanos, en el contexto de nuestra realidad social y cultural.
     color: blue
   - nombre: Lcda. Ana José Espinoza Ubieto
     iniciales: AE
-    foto: ''
+    foto: /assets/img/fotos/CC646465-CDF0-41B9-90E9-A50B86A77861.webp
     rol: Psicóloga y educadora
     texto: Con experiencia en programas dirigidos a personas autistas y sus familias. Impulsa la detección temprana, el acceso a apoyos de calidad y una sociedad más inclusiva.
     color: purple
@@ -28,7 +28,7 @@ personas:
     color: navy
   - nombre: Lcda. Katherina Saito Noriega
     iniciales: KS
-    foto: ''
+    foto: /assets/img/fotos/08394379-5d66-4856-8ec9-2550ea6d680e.webp
     rol: Psicóloga clínica · Terapeuta sensoriomotora
     texto: Más de 25 años desarrollando programas clínicos y educativos para personas autistas, neurodivergentes y sus familias, incluyendo DIRFloortime® (niveles 1–4).
     color: sky

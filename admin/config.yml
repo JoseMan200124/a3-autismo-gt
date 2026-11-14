@@ -39,6 +39,337 @@ collections:
   editor:
     preview: true
   files:
+  - name: fondos
+    label: Fotos de fondo y frases
+    file: _data/fondos.yml
+    description: Las franjas con foto y frase (Ing. Indira Araya, «Aspiramos a una Guatemala…») y una foto de fondo opcional para cada sección.
+    fields:
+    - label: Frase de la Ing. Indira Araya (franja con foto)
+      name: manifiesto
+      widget: object
+      fields:
+      - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
+        label: Frase
+        name: frase
+        widget: string
+      - label: Quién la dice (sale debajo, en una sola línea)
+        name: autor
+        widget: string
+        required: false
+        hint: Por ejemplo «Ing. Indira Araya». Déjalo vacío si no quieres firma.
+      - label: Foto de fondo
+        name: imagen
+        widget: image
+    - label: «Aspiramos a una Guatemala…» (franja con foto)
+      name: aspiracion
+      widget: object
+      fields:
+      - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
+        label: Frase
+        name: frase
+        widget: text
+      - label: Foto de fondo
+        name: imagen
+        widget: image
+    - label: Foto de fondo de cada sección
+      name: secciones
+      widget: object
+      hint: Opcional. Si una sección no tiene foto, se ve con su color de siempre.
+      fields:
+      - label: Portada (lo primero que se ve)
+        name: portada
+        widget: object
+        collapsed: true
+        fields:
+        - label: Foto de fondo (déjala vacía para el fondo normal)
+          name: imagen
+          widget: image
+          required: false
+        - label: Qué tanto se ve la foto
+          name: velo
+          widget: select
+          default: medio
+          hint: «Poco» deja la foto muy suave para que el texto se lea bien; «Bastante» la muestra más.
+          options:
+          - label: Poco
+            value: poco
+          - label: Medio
+            value: medio
+          - label: Bastante
+            value: bastante
+      - label: Por qué existimos
+        name: porque
+        widget: object
+        collapsed: true
+        fields:
+        - label: Foto de fondo (déjala vacía para el fondo normal)
+          name: imagen
+          widget: image
+          required: false
+        - label: Qué tanto se ve la foto
+          name: velo
+          widget: select
+          default: medio
+          hint: «Poco» deja la foto muy suave para que el texto se lea bien; «Bastante» la muestra más.
+          options:
+          - label: Poco
+            value: poco
+          - label: Medio
+            value: medio
+          - label: Bastante
+            value: bastante
+      - label: Nosotros
+        name: nosotros
+        widget: object
+        collapsed: true
+        fields:
+        - label: Foto de fondo (déjala vacía para el fondo normal)
+          name: imagen
+          widget: image
+          required: false
+        - label: Qué tanto se ve la foto
+          name: velo
+          widget: select
+          default: medio
+          hint: «Poco» deja la foto muy suave para que el texto se lea bien; «Bastante» la muestra más.
+          options:
+          - label: Poco
+            value: poco
+          - label: Medio
+            value: medio
+          - label: Bastante
+            value: bastante
+      - label: Lo que nos distingue
+        name: distingue
+        widget: object
+        collapsed: true
+        fields:
+        - label: Foto de fondo (déjala vacía para el fondo normal)
+          name: imagen
+          widget: image
+          required: false
+        - label: Qué tanto se ve la foto
+          name: velo
+          widget: select
+          default: medio
+          hint: «Poco» deja la foto muy suave para que el texto se lea bien; «Bastante» la muestra más.
+          options:
+          - label: Poco
+            value: poco
+          - label: Medio
+            value: medio
+          - label: Bastante
+            value: bastante
+      - label: Programas (fondo azul)
+        name: programas
+        widget: object
+        collapsed: true
+        fields:
+        - label: Foto de fondo (déjala vacía para el fondo normal)
+          name: imagen
+          widget: image
+          required: false
+        - label: Qué tanto se ve la foto
+          name: velo
+          widget: select
+          default: medio
+          hint: «Poco» deja la foto muy suave para que el texto se lea bien; «Bastante» la muestra más.
+          options:
+          - label: Poco
+            value: poco
+          - label: Medio
+            value: medio
+          - label: Bastante
+            value: bastante
+      - label: Misión y visión
+        name: esencia
+        widget: object
+        collapsed: true
+        fields:
+        - label: Foto de fondo (déjala vacía para el fondo normal)
+          name: imagen
+          widget: image
+          required: false
+        - label: Qué tanto se ve la foto
+          name: velo
+          widget: select
+          default: medio
+          hint: «Poco» deja la foto muy suave para que el texto se lea bien; «Bastante» la muestra más.
+          options:
+          - label: Poco
+            value: poco
+          - label: Medio
+            value: medio
+          - label: Bastante
+            value: bastante
+      - label: Valores
+        name: valores
+        widget: object
+        collapsed: true
+        fields:
+        - label: Foto de fondo (déjala vacía para el fondo normal)
+          name: imagen
+          widget: image
+          required: false
+        - label: Qué tanto se ve la foto
+          name: velo
+          widget: select
+          default: medio
+          hint: «Poco» deja la foto muy suave para que el texto se lea bien; «Bastante» la muestra más.
+          options:
+          - label: Poco
+            value: poco
+          - label: Medio
+            value: medio
+          - label: Bastante
+            value: bastante
+      - label: Fundadores
+        name: fundadores
+        widget: object
+        collapsed: true
+        fields:
+        - label: Foto de fondo (déjala vacía para el fondo normal)
+          name: imagen
+          widget: image
+          required: false
+        - label: Qué tanto se ve la foto
+          name: velo
+          widget: select
+          default: medio
+          hint: «Poco» deja la foto muy suave para que el texto se lea bien; «Bastante» la muestra más.
+          options:
+          - label: Poco
+            value: poco
+          - label: Medio
+            value: medio
+          - label: Bastante
+            value: bastante
+      - label: Impulsadores de cambio
+        name: impulsadores
+        widget: object
+        collapsed: true
+        fields:
+        - label: Foto de fondo (déjala vacía para el fondo normal)
+          name: imagen
+          widget: image
+          required: false
+        - label: Qué tanto se ve la foto
+          name: velo
+          widget: select
+          default: medio
+          hint: «Poco» deja la foto muy suave para que el texto se lea bien; «Bastante» la muestra más.
+          options:
+          - label: Poco
+            value: poco
+          - label: Medio
+            value: medio
+          - label: Bastante
+            value: bastante
+      - label: A3 Informa
+        name: informa
+        widget: object
+        collapsed: true
+        fields:
+        - label: Foto de fondo (déjala vacía para el fondo normal)
+          name: imagen
+          widget: image
+          required: false
+        - label: Qué tanto se ve la foto
+          name: velo
+          widget: select
+          default: medio
+          hint: «Poco» deja la foto muy suave para que el texto se lea bien; «Bastante» la muestra más.
+          options:
+          - label: Poco
+            value: poco
+          - label: Medio
+            value: medio
+          - label: Bastante
+            value: bastante
+      - label: Súmate / formas de apoyar (fondo azul)
+        name: apoyar
+        widget: object
+        collapsed: true
+        fields:
+        - label: Foto de fondo (déjala vacía para el fondo normal)
+          name: imagen
+          widget: image
+          required: false
+        - label: Qué tanto se ve la foto
+          name: velo
+          widget: select
+          default: medio
+          hint: «Poco» deja la foto muy suave para que el texto se lea bien; «Bastante» la muestra más.
+          options:
+          - label: Poco
+            value: poco
+          - label: Medio
+            value: medio
+          - label: Bastante
+            value: bastante
+      - label: Orientación para familias
+        name: orientacion
+        widget: object
+        collapsed: true
+        fields:
+        - label: Foto de fondo (déjala vacía para el fondo normal)
+          name: imagen
+          widget: image
+          required: false
+        - label: Qué tanto se ve la foto
+          name: velo
+          widget: select
+          default: medio
+          hint: «Poco» deja la foto muy suave para que el texto se lea bien; «Bastante» la muestra más.
+          options:
+          - label: Poco
+            value: poco
+          - label: Medio
+            value: medio
+          - label: Bastante
+            value: bastante
+      - label: Contáctanos
+        name: contacto
+        widget: object
+        collapsed: true
+        fields:
+        - label: Foto de fondo (déjala vacía para el fondo normal)
+          name: imagen
+          widget: image
+          required: false
+        - label: Qué tanto se ve la foto
+          name: velo
+          widget: select
+          default: medio
+          hint: «Poco» deja la foto muy suave para que el texto se lea bien; «Bastante» la muestra más.
+          options:
+          - label: Poco
+            value: poco
+          - label: Medio
+            value: medio
+          - label: Bastante
+            value: bastante
+      - label: Cierre (al final)
+        name: cierre
+        widget: object
+        collapsed: true
+        fields:
+        - label: Foto de fondo (déjala vacía para el fondo normal)
+          name: imagen
+          widget: image
+          required: false
+        - label: Qué tanto se ve la foto
+          name: velo
+          widget: select
+          default: medio
+          hint: «Poco» deja la foto muy suave para que el texto se lea bien; «Bastante» la muestra más.
+          options:
+          - label: Poco
+            value: poco
+          - label: Medio
+            value: medio
+          - label: Bastante
+            value: bastante
   - name: general
     label: General (nombre, correo, pie)
     file: _data/general.yml
@@ -265,17 +596,6 @@ collections:
             value: blue
           - label: Azul marino
             value: navy
-    - label: Frase sobre foto
-      name: manifiesto
-      widget: object
-      fields:
-      - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
-        label: Frase
-        name: frase
-        widget: string
-      - label: Foto de fondo
-        name: imagen
-        widget: image
   - name: nosotros
     label: Nosotros y cifras
     file: _data/nosotros.yml
@@ -297,6 +617,11 @@ collections:
     - label: Descripción de la foto
       name: foto_alt
       widget: string
+    - label: Ícono junto a la foto (corazón)
+      name: marca
+      widget: image
+      required: false
+      hint: Déjalo vacío para no mostrar ícono.
     - label: 'Sello: arriba'
       name: sello_arriba
       widget: string
@@ -475,6 +800,9 @@ collections:
       label: Título
       name: titulo
       widget: string
+    - label: Etiqueta «Misión»
+      name: mision_etiqueta
+      widget: string
     - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
       label: Misión
       name: mision
@@ -482,19 +810,15 @@ collections:
     - label: Ilustración de la misión
       name: mision_imagen
       widget: image
+    - label: Etiqueta «Visión»
+      name: vision_etiqueta
+      widget: string
     - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
       label: Visión
       name: vision
       widget: text
     - label: Ilustración de la visión
       name: vision_imagen
-      widget: image
-    - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
-      label: Aspiración (frase sobre foto)
-      name: aspiracion
-      widget: text
-    - label: Foto de fondo de la aspiración
-      name: aspiracion_imagen
       widget: image
     - label: 'Valores: antetítulo'
       name: valores_antetitulo
@@ -745,6 +1069,27 @@ collections:
         label: Texto
         name: texto
         widget: text
+      - label: 'Formulario: «Nombre completo»'
+        name: form_nombre
+        widget: string
+      - label: 'Formulario: «Correo electrónico»'
+        name: form_correo
+        widget: string
+      - label: 'Formulario: «Teléfono / WhatsApp»'
+        name: form_telefono
+        widget: string
+      - label: 'Formulario: «Me interesa»'
+        name: form_interes
+        widget: string
+      - label: 'Formulario: «Mensaje»'
+        name: form_mensaje
+        widget: string
+      - label: 'Formulario: texto de ayuda dentro del mensaje'
+        name: form_ayuda
+        widget: string
+      - label: 'Formulario: botón de enviar'
+        name: form_boton
+        widget: string
     - label: Cierre
       name: cierre
       widget: object

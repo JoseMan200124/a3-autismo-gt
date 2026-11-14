@@ -10,6 +10,7 @@
 {%- assign apo = site.data.apoyar -%}
 {%- assign imp = site.data.impulsadores -%}
 {%- assign inf = site.data.informa -%}
+{%- assign fon = site.data.fondos -%}
 {%- assign raiz = '' -%}
 <!doctype html>
 <html lang="es-GT">
@@ -109,6 +110,7 @@
     <!-- ============ HERO ============ -->
     {%- assign p = ini.portada %}
     <section class="hero" id="inicio">
+      {% include fondo.html k='portada' %}
       <div class="wrap hero__grid">
         <div class="hero__copy">
           <p class="hero__kicker reveal"><span class="hero__flag" aria-hidden="true"></span>{{ p.antetitulo }}</p>
@@ -169,6 +171,7 @@
     <!-- ============ POR QUÉ EXISTIMOS ============ -->
     {%- assign q = ini.porque %}
     <section class="section why" id="por-que">
+      {% include fondo.html k='porque' %}
       <div class="wrap why__grid">
         <div class="why__intro">
           <p class="eyebrow reveal">{{ q.antetitulo }}</p>
@@ -196,20 +199,23 @@
 
     <!-- ============ MANIFIESTO ============ -->
     <section class="manifesto" aria-label="Manifiesto">
-      <img class="manifesto__bg" data-parallax src="{{ ini.manifiesto.imagen | relative_url }}" alt="" width="1920" height="1278" loading="lazy">
+      <img class="manifesto__bg" data-parallax src="{{ fon.manifiesto.imagen | relative_url }}" alt="" width="1920" height="1278" loading="lazy">
       <div class="wrap">
-        <p class="manifesto__quote reveal">{% include md.html t=ini.manifiesto.frase %}</p>
+        <p class="manifesto__quote reveal">{% include md.html t=fon.manifiesto.frase %}{% if fon.manifiesto.autor and fon.manifiesto.autor != "" %}<span class="manifesto__autor">{{ fon.manifiesto.autor }}</span>{% endif %}</p>
       </div>
     </section>
 
     <!-- ============ NOSOTROS ============ -->
     <section class="section" id="nosotros">
+      {% include fondo.html k='nosotros' %}
       <div class="wrap about">
         <div class="about__art reveal">
           <figure class="about__photo">
             <img src="{{ nos.foto | relative_url }}" alt="{{ nos.foto_alt | escape }}" width="1400" height="933" loading="lazy">
           </figure>
-          <span class="about__mark"><img src="{{ '/assets/img/corazon.webp' | relative_url }}" alt="" width="598" height="563" loading="lazy"></span>
+          {%- if nos.marca and nos.marca != "" %}
+          <span class="about__mark"><img src="{{ nos.marca | relative_url }}" alt="" width="598" height="563" loading="lazy"></span>
+          {%- endif %}
           <div class="about__badge">
             <span>{{ nos.sello_arriba }}</span>
             <strong>{{ nos.sello_centro }}</strong>
@@ -235,6 +241,7 @@
     <!-- ============ LO QUE NOS DISTINGUE ============ -->
     {%- assign d = nos.distingue %}
     <section class="section section--tint" id="distingue">
+      {% include fondo.html k='distingue' %}
       <div class="wrap">
         <header class="section__head">
           <p class="eyebrow reveal">{{ d.antetitulo }}</p>
@@ -254,6 +261,7 @@
 
     <!-- ============ PROGRAMAS ============ -->
     <section class="section programs" id="programas">
+      {% include fondo.html k='programas' oscuro=true %}
       <div class="programs__glow" aria-hidden="true"></div>
       <div class="wrap">
         <header class="section__head section__head--light">
@@ -295,6 +303,7 @@
 
     <!-- ============ MISIÓN / VISIÓN ============ -->
     <section class="section" id="esencia">
+      {% include fondo.html k='esencia' %}
       <div class="wrap">
         <header class="section__head">
           <p class="eyebrow reveal">{{ esen.antetitulo }}</p>
@@ -303,12 +312,12 @@
         <div class="mv">
           <article class="mv__card reveal">
             <img src="{{ esen.mision_imagen | relative_url }}" alt="" width="640" height="439" loading="lazy">
-            <span class="tag" style="--c:var(--blue)">Misión</span>
+            <span class="tag" style="--c:var(--blue)">{{ esen.mision_etiqueta | default: "Misión" }}</span>
             <p>{% include md.html t=esen.mision %}</p>
           </article>
           <article class="mv__card reveal">
             <img src="{{ esen.vision_imagen | relative_url }}" alt="" width="640" height="449" loading="lazy">
-            <span class="tag" style="--c:var(--green)">Visión</span>
+            <span class="tag" style="--c:var(--green)">{{ esen.vision_etiqueta | default: "Visión" }}</span>
             <p>{% include md.html t=esen.vision %}</p>
           </article>
         </div>
@@ -317,14 +326,15 @@
 
     <!-- ============ ASPIRACIÓN ============ -->
     <section class="aspire-band" aria-label="Nuestra aspiración">
-      <img class="aspire-band__bg" data-parallax src="{{ esen.aspiracion_imagen | relative_url }}" alt="" width="1920" height="1079" loading="lazy">
+      <img class="aspire-band__bg" data-parallax src="{{ fon.aspiracion.imagen | relative_url }}" alt="" width="1920" height="1079" loading="lazy">
       <div class="wrap">
-        <p class="aspire reveal">{% include md.html t=esen.aspiracion %}</p>
+        <p class="aspire reveal">{% include md.html t=fon.aspiracion.frase %}</p>
       </div>
     </section>
 
     <!-- ============ VALORES ============ -->
     <section class="section section--tint" id="valores">
+      {% include fondo.html k='valores' %}
       <div class="wrap">
         <header class="section__head">
           <p class="eyebrow reveal">{{ esen.valores_antetitulo }}</p>
@@ -344,6 +354,7 @@
 
     <!-- ============ FUNDADORES ============ -->
     <section class="section" id="fundadores">
+      {% include fondo.html k='fundadores' %}
       <div class="wrap">
         <header class="section__head section__head--split">
           <div>
@@ -372,6 +383,7 @@
 
     <!-- ============ IMPULSADORES DE CAMBIO ============ -->
     <section class="section section--tint" id="impulsadores">
+      {% include fondo.html k='impulsadores' %}
       <div class="wrap">
         <header class="section__head">
           {%- if imp.icono and imp.icono != "" %}
@@ -398,6 +410,7 @@
 
     <!-- ============ A3 INFORMA ============ -->
     <section class="section" id="informa">
+      {% include fondo.html k='informa' %}
       <div class="wrap">
         <header class="section__head">
           {%- if inf.icono and inf.icono != "" %}
@@ -425,6 +438,7 @@
     <!-- ============ APOYAR ============ -->
     {%- assign w = apo.formas %}
     <section class="section support" id="apoyar">
+      {% include fondo.html k='apoyar' oscuro=true %}
       <div class="wrap">
         <header class="section__head section__head--light">
           {%- if apo.icono and apo.icono != "" %}
@@ -479,6 +493,7 @@
     <!-- ============ ORIENTACIÓN FAMILIAS ============ -->
     {%- assign fam = apo.familias %}
     <section class="section family" id="orientacion">
+      {% include fondo.html k='orientacion' %}
       <div class="wrap family__inner reveal">
         <img src="{{ fam.imagen | relative_url }}" alt="" width="711" height="462" loading="lazy">
         <div>
@@ -493,6 +508,7 @@
     <!-- ============ CONTACTO ============ -->
     {%- assign con = apo.contacto %}
     <section class="section section--tint" id="contacto">
+      {% include fondo.html k='contacto' %}
       <div class="wrap contact">
         <div class="contact__info">
           <p class="eyebrow reveal">{{ con.antetitulo }}</p>
@@ -516,12 +532,12 @@
 
         <form class="form reveal" id="contactForm" data-correo="{{ g.correo | escape }}" novalidate>
           <div class="form__row">
-            <label>Nombre completo<input name="nombre" autocomplete="name" required></label>
-            <label>Correo electrónico<input name="correo" type="email" autocomplete="email" required></label>
+            <label>{{ con.form_nombre | default: "Nombre completo" }}<input name="nombre" autocomplete="name" required></label>
+            <label>{{ con.form_correo | default: "Correo electrónico" }}<input name="correo" type="email" autocomplete="email" required></label>
           </div>
           <div class="form__row">
-            <label><span>Teléfono / WhatsApp <span class="opt">(opcional)</span></span><input name="telefono" type="tel" autocomplete="tel" inputmode="tel"></label>
-            <label>Me interesa
+            <label><span>{{ con.form_telefono | default: "Teléfono / WhatsApp" }} <span class="opt">(opcional)</span></span><input name="telefono" type="tel" autocomplete="tel" inputmode="tel"></label>
+            <label>{{ con.form_interes | default: "Me interesa" }}
               <select name="interes" id="interes">
                 <option>Busco orientación para mi familia</option>
                 <option>Evaluación diagnóstica (Ruta)</option>
@@ -533,8 +549,8 @@
               </select>
             </label>
           </div>
-          <label>Mensaje<textarea name="mensaje" rows="5" required placeholder="Cuéntanos cómo podemos ayudarte o cómo quieres sumarte."></textarea></label>
-          <button class="btn btn--primary btn--lg" type="submit">Enviar mensaje
+          <label>{{ con.form_mensaje | default: "Mensaje" }}<textarea name="mensaje" rows="5" required placeholder="{{ con.form_ayuda | default: 'Cuéntanos cómo podemos ayudarte o cómo quieres sumarte.' | escape }}"></textarea></label>
+          <button class="btn btn--primary btn--lg" type="submit">{{ con.form_boton | default: "Enviar mensaje" }}
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button>
           <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
         </form>
@@ -544,6 +560,7 @@
     <!-- ============ CIERRE ============ -->
     {%- assign ci = apo.cierre %}
     <section class="closing">
+      {% include fondo.html k='cierre' %}
       <div class="wrap closing__inner reveal">
         <img src="{{ ci.imagen | relative_url }}" alt="" width="848" height="608" loading="lazy">
         <p>{{ ci.texto }}</p>

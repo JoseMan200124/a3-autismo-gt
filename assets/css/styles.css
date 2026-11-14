@@ -263,6 +263,17 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spa
 .manifesto::before { content: ""; position: absolute; inset: auto 0 0; height: 4px; background: var(--spectrum); z-index: 1; }
 .manifesto__quote { margin: 0; text-align: center; font-size: clamp(30px, 4.6vw, 58px); font-weight: 700; letter-spacing: -.035em; line-height: 1.12; color: #fff; }
 .manifesto__quote em { color: var(--sky-lt); }
+.manifesto__autor { display: block; margin-top: 18px; font-size: clamp(17px, 1.8vw, 22px); font-weight: 600; letter-spacing: 0; white-space: nowrap; color: rgba(255, 255, 255, .86); }
+.manifesto__autor::before { content: "— "; }
+
+/* ---------- Foto de fondo opcional por sección (Panel → Fotos de fondo y frases) ---------- */
+section:has(> .fondo) { position: relative; isolation: isolate; overflow: hidden; }
+.fondo { position: absolute; inset: 0; z-index: -1; background: var(--fondo-img) center / cover no-repeat; pointer-events: none; }
+.fondo::after { content: ""; position: absolute; inset: 0; background: var(--bg); opacity: var(--velo, .8); }
+.fondo--oscuro::after { background: var(--navy-deep); }
+.fondo--poco { --velo: .9; }
+.fondo--medio { --velo: .8; }
+.fondo--bastante { --velo: .62; }
 
 /* ---------- Secciones ---------- */
 .section { padding: clamp(80px, 10vw, 136px) 0; position: relative; }

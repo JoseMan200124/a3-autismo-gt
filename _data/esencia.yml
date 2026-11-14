@@ -1,11 +1,11 @@
 antetitulo: "Nuestra esencia"
 titulo: "Lo que nos guía y nos impulsa a trabajar *cada día.*"
+mision_etiqueta: "Misión"
 mision: "Reducir barreras, fortalecer a las familias y promover comunidades más inclusivas mediante evaluación diagnóstica comprensiva para la detección temprana, acompañamiento familiar, formación profesional e inclusión comunitaria."
 mision_imagen: "/assets/img/mision.webp"
+vision_etiqueta: "Visión"
 vision: "Ser una entidad guatemalteca activa, humana y dinámica, reconocida por ampliar el acceso a evaluaciones diagnósticas comprensivas, fortalecer la comprensión del autismo y generar espacios de oportunidad para las personas autistas y sus familias."
 vision_imagen: "/assets/img/vision.webp"
-aspiracion: "Aspiramos a una Guatemala donde las personas autistas sean *valoradas por sus capacidades*, participen plenamente y tengan acceso a los apoyos que favorezcan su desarrollo."
-aspiracion_imagen: "/assets/img/fotos/antigua-calle.webp"
 valores_antetitulo: "Nuestros valores"
 valores_titulo: "El fundamento de cada decisión, acción y relación."
 valores:

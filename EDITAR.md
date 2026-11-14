@@ -20,6 +20,10 @@ No hace falta cuenta de GitHub. Cada persona tiene su propio usuario: no compart
   convierte a un formato liviano automáticamente.
 - En los textos, `*así*` se ve en cursiva y `**así**` en negrita.
 - El contador de evaluaciones está en **Nosotros y cifras → Cifras**.
+- Las **franjas con foto y frase** (la de la Ing. Indira Araya y «Aspiramos a una Guatemala…») están
+  en **Fotos de fondo y frases**: ahí se cambia la frase, quién la dice (sale en su propia línea) y la foto.
+- En **Fotos de fondo y frases → Foto de fondo de cada sección** se puede poner una foto detrás de
+  cualquier sección. «Qué tanto se ve la foto» la deja más suave o más visible; vacía = fondo normal.
 - A la derecha está la **vista previa**: es la página real armada con lo que van escribiendo, y se
   actualiza mientras escriben. Arriba pueden cambiar entre **Computadora** y **Celular**. Lo que se ve
   ahí todavía no está publicado: se publica al tocar **Guardar**.

@@ -1,0 +1,22 @@
+manifiesto:
+  frase: “El diagnóstico no te limita, *te expande.*”
+  autor: Ing. Indira Araya
+  imagen: /assets/img/fotos/antigua-aerea.webp
+aspiracion:
+  frase: Aspiramos a una Guatemala donde las personas autistas sean *valoradas por sus capacidades*, participen plenamente y tengan acceso a los apoyos que favorezcan su desarrollo.
+  imagen: /assets/img/fotos/antigua-calle.webp
+secciones:
+  portada: {imagen: '', velo: medio}
+  porque: {imagen: '', velo: medio}
+  nosotros: {imagen: '', velo: medio}
+  distingue: {imagen: '', velo: medio}
+  programas: {imagen: '', velo: medio}
+  esencia: {imagen: '', velo: medio}
+  valores: {imagen: '', velo: medio}
+  fundadores: {imagen: '', velo: medio}
+  impulsadores: {imagen: '', velo: medio}
+  informa: {imagen: '', velo: medio}
+  apoyar: {imagen: '', velo: medio}
+  orientacion: {imagen: '', velo: medio}
+  contacto: {imagen: '', velo: medio}
+  cierre: {imagen: '', velo: medio}

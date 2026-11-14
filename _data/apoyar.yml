@@ -39,6 +39,13 @@ contacto:
   antetitulo: Contáctanos
   titulo: Conversemos.
   texto: Escríbenos para orientación, donaciones, voluntariado o alianzas. Cada mensaje lo lee una persona del equipo A³.
+  form_nombre: Nombre completo
+  form_correo: Correo electrónico
+  form_telefono: Teléfono / WhatsApp
+  form_interes: Me interesa
+  form_mensaje: Mensaje
+  form_ayuda: Cuéntanos cómo podemos ayudarte o cómo quieres sumarte.
+  form_boton: Enviar mensaje
 cierre:
   texto: Gracias por ser parte del movimiento que convierte la
   titulo: inclusión en *acción.*

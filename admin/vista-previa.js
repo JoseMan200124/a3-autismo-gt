@@ -13,7 +13,7 @@
 
   // Archivo del panel → sección de la página a la que se lleva la vista al abrir.
   var SECCION = {
-    general: 'inicio', inicio: 'inicio', nosotros: 'nosotros', programas: 'programas',
+    fondos: 'inicio', general: 'inicio', inicio: 'inicio', nosotros: 'nosotros', programas: 'programas',
     esencia: 'esencia', fundadores: 'fundadores', apoyar: 'apoyar',
     impulsadores: 'impulsadores', informa: 'informa',
   };

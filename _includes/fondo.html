@@ -1,0 +1,5 @@
+{%- comment -%} Foto de fondo opcional de una sección (Panel → Fotos de fondo y frases). k = clave de la sección; oscuro = la sección es azul oscuro. {%- endcomment -%}
+{%- assign fx = site.data.fondos.secciones[include.k] -%}
+{%- if fx and fx.imagen and fx.imagen != "" -%}
+<div class="fondo{% if include.oscuro %} fondo--oscuro{% endif %} fondo--{{ fx.velo | default: 'medio' }}" style="--fondo-img:url('{{ fx.imagen | relative_url }}')" aria-hidden="true"></div>
+{%- endif -%}

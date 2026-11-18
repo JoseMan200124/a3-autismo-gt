@@ -1,0 +1,6 @@
+# Aviso temporal: mientras «activo» sea true, todo el sitio muestra solo este aviso
+# (el panel /admin/ sigue funcionando). Para volver a publicar el sitio, poner false.
+activo: true
+titulo: Estamos realizando *actualizaciones*
+texto: Nuestro sitio web está en construcción mientras preparamos novedades. Muy pronto volveremos a estar en línea.
+firma: Gracias por tu paciencia.

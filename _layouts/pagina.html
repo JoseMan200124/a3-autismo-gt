@@ -5,6 +5,7 @@
 {%- assign prog = site.data.programas -%}
 {%- assign inf = site.data.informa -%}
 {%- assign raiz = '/' -%}
+{%- if site.data.mantenimiento.activo -%}{% include mantenimiento.html %}{%- else -%}
 {%- capture titulo_pagina %}{% if page.title %}{{ page.title }} | {{ g.nombre }}{% else %}{{ g.seo_titulo }}{% endif %}{% endcapture -%}
 {%- assign descripcion = page.resumen | default: page.description | default: g.seo_descripcion -%}
 {%- assign imagen = page.imagen | default: g.logo_redes -%}
@@ -70,3 +71,4 @@
   {% include pie.html %}
 </body>
 </html>
+{%- endif -%}

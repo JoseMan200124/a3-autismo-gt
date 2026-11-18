@@ -12,6 +12,7 @@
 {%- assign inf = site.data.informa -%}
 {%- assign fon = site.data.fondos -%}
 {%- assign raiz = '' -%}
+{%- if site.data.mantenimiento.activo -%}{% include mantenimiento.html %}{%- else -%}
 <!doctype html>
 <html lang="es-GT">
 <head>
@@ -573,3 +574,4 @@
   {% include pie.html %}
 </body>
 </html>
+{%- endif -%}

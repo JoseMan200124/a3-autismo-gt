@@ -39,6 +39,26 @@ collections:
   editor:
     preview: true
   files:
+  - name: mantenimiento
+    label: "Aviso: sitio en actualización"
+    file: _data/mantenimiento.yml
+    description: Mientras esté encendido, todo el sitio muestra solo este aviso. Apágalo para volver a publicar la página completa (tarda uno o dos minutos).
+    fields:
+    - label: Mostrar el aviso en lugar del sitio
+      name: activo
+      widget: boolean
+      hint: Encendido = sitio en pausa. Apagado = sitio completo publicado.
+    - hint: Usa *asteriscos* para cursiva y **dobles** para negrita.
+      label: Título
+      name: titulo
+      widget: string
+    - label: Texto
+      name: texto
+      widget: text
+    - label: Línea final
+      name: firma
+      widget: string
+      required: false
   - name: fondos
     label: Fotos de fondo y frases
     file: _data/fondos.yml

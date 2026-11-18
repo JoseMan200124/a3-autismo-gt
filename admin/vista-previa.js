@@ -13,7 +13,7 @@
 
   // Archivo del panel → sección de la página a la que se lleva la vista al abrir.
   var SECCION = {
-    fondos: 'inicio', general: 'inicio', inicio: 'inicio', nosotros: 'nosotros', programas: 'programas',
+    mantenimiento: 'inicio', fondos: 'inicio', general: 'inicio', inicio: 'inicio', nosotros: 'nosotros', programas: 'programas',
     esencia: 'esencia', fundadores: 'fundadores', apoyar: 'apoyar',
     impulsadores: 'impulsadores', informa: 'informa',
   };
@@ -202,6 +202,8 @@
       cargarPaquete().then(function (p) {
         var data = {};
         Object.keys(p.datos).forEach(function (k) { data[k] = p.datos[k]; });
+        // El aviso de «sitio en actualización» solo se ve al editar su propio archivo.
+        if (clave !== 'mantenimiento') data.mantenimiento = { activo: false };
         var site = { url: ORIGEN, baseurl: '', data: data, posts: p.posts, time: new Date() };
         if (clave === 'entradas') {
           // Una entrada de A3 Informa: se arma con sus plantillas (entrada dentro de página).

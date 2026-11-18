@@ -9,6 +9,7 @@ layout: null
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+  {%- unless site.data.mantenimiento.activo %}
   <url>
     <loc>{{ '/informa/' | absolute_url }}</loc>
     <lastmod>{% if site.posts.size > 0 %}{{ site.posts.first.date | date_to_xmlschema }}{% else %}{{ site.time | date_to_xmlschema }}{% endif %}</lastmod>
@@ -22,4 +23,5 @@ layout: null
     <priority>0.6</priority>
   </url>
   {%- endfor %}
+  {%- endunless %}
 </urlset>
